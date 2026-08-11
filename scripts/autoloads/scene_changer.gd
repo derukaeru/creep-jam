@@ -1,6 +1,6 @@
 extends Node
 
-var loading_screen: PackedScene = load(Registry.UID["loading_screen"])
+@onready var loading_screen: PackedScene = load(Registry.UID["loading_screen"])
 var loaded_resource: PackedScene
 var scene_path: String
 var progress: Array = []

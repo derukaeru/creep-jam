@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c07cgn84heqn2"]
+
+[ext_resource type="Script" uid="uid://3wnequsyvb1d" path="res://scenes/entities/player/player.gd" id="1_1hmtu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_635qg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hmtu"]
+albedo_color = Color(0.35747227, 0.6001609, 0.31500518, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_58kc7"]
+
+[node name="player" type="CharacterBody3D" unique_id=1440541998]
+script = ExtResource("1_1hmtu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=923162987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99538064, 0)
+shape = SubResource("CylinderShape3D_635qg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1778001696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99538064, 0)
+material_override = SubResource("StandardMaterial3D_1hmtu")
+mesh = SubResource("CylinderMesh_58kc7")

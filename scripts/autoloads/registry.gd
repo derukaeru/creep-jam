@@ -7,3 +7,7 @@ var UID: Dictionary = {
 	"pause_screen": "uid://7jemke30bxqq",
 	"dialogue_box": "uid://6cae11kpahyv"
 }
+
+var MAPS: Dictionary = {
+	"room": "uid://bpw37op1o56wp"
+}

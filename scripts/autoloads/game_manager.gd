@@ -1,7 +1,6 @@
 extends Node
 
 @onready var pause_screen = load(Registry.UID["pause_screen"]).instantiate()
-
 var canvas_layer = CanvasLayer.new()
 
 func _ready() -> void:
@@ -22,3 +21,9 @@ func _process(_d) -> void:
 			get_tree().paused = true
 			pause_screen.show()
 			Util.mouse_visible()
+
+func change_map(id: String) -> void:
+	if Registry.MAPS.has(id):
+		EventBus.go_to_map.emit(id)
+	
+	# transition here maybe

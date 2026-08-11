@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="creep-jam"
+run/main_scene="uid://b1mkou3w6vrst"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -18,14 +19,20 @@ config/icon="res://icon.svg"
 
 Util="*uid://cqj71im1h4dup"
 SceneChanger="*uid://dmxqb7xgew5rr"
-Registry="*uid://cjfdq8rmpyepj"
 GameManager="*uid://bqb8pef3nwxty"
 DialogueManager="*uid://dip4jyj2ygdqq"
 Dialogues="*uid://cna0lxjpjh1v3"
+EventBus="*uid://dbpu4dksu4d8n"
+Registry="*uid://cjfdq8rmpyepj"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
 
 [display]
 
 window/size/viewport_width=1056
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
