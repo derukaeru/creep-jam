@@ -1,7 +1,11 @@
 extends CharacterBody3D
 
-const SPEED: float = 5.0
+@onready var model_container: Node3D = $model_container
+
+const SPEED: float = 2.6
 var can_move: bool = true
+
+var movement_tw: Tween 
 
 func _ready() -> void:
 	EventBus.player_can_move.connect(
@@ -19,6 +23,13 @@ func _physics_process(_delta) -> void:
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
+			
+			if (movement_tw and not movement_tw.is_valid()) or not movement_tw:
+				movement_tw = get_tree().create_tween()
+				
+				movement_tw.tween_property(model_container, "position:y", 0.2, 0.1)
+				movement_tw.tween_property(model_container, "position:y", 0.0, 0.1)
+				
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)

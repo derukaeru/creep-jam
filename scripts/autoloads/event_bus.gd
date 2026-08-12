@@ -5,3 +5,5 @@ signal go_to_map(map_id: String)
 
 signal player_can_move
 signal player_not_move
+
+signal set_camera(camera: Camera3D)

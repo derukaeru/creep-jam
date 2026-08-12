@@ -7,6 +7,7 @@ var map_id: String
 
 func _ready() -> void:
 	EventBus.go_to_map.connect(go_to_map)
+	EventBus.set_camera.connect(set_camera)
 
 func go_to_map(id: String) -> void:
 	EventBus.player_not_move.emit()
@@ -26,3 +27,13 @@ func go_to_map(id: String) -> void:
 	EventBus.changed_map.emit(old_map_id, map_id)
 	EventBus.player_can_move.emit()
 	
+func set_camera(camera: Camera3D) -> void:
+	if not camera:
+		print("there is no camera attached")
+		return
+	
+	var current_camera: Camera3D = get_tree().get_first_node_in_group("main_camera")
+	if current_camera: 
+		current_camera.remove_from_group("main_camera")
+	
+	camera.add_to_group("main_camera")
