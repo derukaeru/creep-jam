@@ -1,32 +1,18 @@
 [gd_scene format=3 uid="uid://bsgk6rohveaye"]
 
 [ext_resource type="Script" uid="uid://bq7m32vj3rxw6" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
-[ext_resource type="Shader" uid="uid://bdtkqtwhm6ifw" path="res://assets/shaders/buckshot.gdshader" id="2_f5cxw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aac20"]
-shader = ExtResource("2_f5cxw")
-shader_parameter/exposure = 0.8850000182875
-shader_parameter/contrast = 1.05
-shader_parameter/saturation = 0.66000003135
-shader_parameter/enable_pixelate = true
-shader_parameter/pixel_factor = 0.690000009025
-shader_parameter/enable_posterize = false
-shader_parameter/color_levels = 16.0
-shader_parameter/dither_strength = 0.35
-shader_parameter/chrom_aberration = 0.0
-shader_parameter/vignette_strength = 1.08800005168
-shader_parameter/grain_strength = 0.0
-shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
-shader_parameter/tint_strength = 0.0
-shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [node name="ui" type="CanvasLayer" unique_id=1105309692]
 script = ExtResource("1_u7n8c")
 
 [node name="shader" type="ColorRect" parent="." unique_id=1043751311]
+visible = false
 material = SubResource("ShaderMaterial_aac20")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2

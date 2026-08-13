@@ -1,3 +1,37 @@
 [gd_scene format=3 uid="uid://6cae11kpahyv"]
 
-[node name="dialogue_box" type="CanvasLayer" unique_id=156380445]
+[ext_resource type="Script" uid="uid://dp6ccukekbira" path="res://scenes/ui/dialogue_box.gd" id="1_xg44k"]
+[ext_resource type="FontFile" uid="uid://bprfau4nd1dso" path="res://assets/fonts/big-shot.ttf" id="2_6iboe"]
+
+[node name="dialogue_box" type="CanvasLayer" unique_id=156380445 groups=["current_dialogue_box"]]
+script = ExtResource("1_xg44k")
+
+[node name="text_background" type="ColorRect" parent="." unique_id=402724509]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -160.0
+offset_right = -8.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.033853278, 0.033853278, 0.033853274, 0.8745098)
+
+[node name="text" type="RichTextLabel" parent="text_background" unique_id=64220164]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_6iboe")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "lorem ipsum text"
+scroll_active = false

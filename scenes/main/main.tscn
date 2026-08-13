@@ -12,19 +12,16 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_iuonh")
 
 [sub_resource type="Environment" id="Environment_l3cfh"]
-background_mode = 2
+background_mode = 1
 sky = SubResource("Sky_k2fmo")
-tonemap_mode = 2
+ambient_light_color = Color(0.31431612, 0.31431612, 0.3143161, 1)
+adjustment_enabled = true
 
 [node name="main" type="Node3D" unique_id=889827138]
 script = ExtResource("1_hyk8p")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1046944783]
 environment = SubResource("Environment_l3cfh")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1640684332]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="player" parent="." unique_id=1440541998 instance=ExtResource("2_iuonh")]
 
@@ -34,3 +31,8 @@ shadow_enabled = true
 
 [node name="main_camera" type="Camera3D" parent="." unique_id=95168899 groups=["current_camera", "main_camera"]]
 transform = Transform3D(1, 0, 0, 0, 0.86745304, 0.4975191, 0, -0.4975191, 0.86745304, 0, 3.6971226, 8.813133)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1116287589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11390352, 5.659915, 0)
+omni_range = 13.51
+omni_attenuation = 0.402

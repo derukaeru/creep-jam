@@ -31,7 +31,7 @@ gdscript/warnings/unused_signal=0
 
 [display]
 
-window/size/viewport_width=1056
+window/size/viewport_width=992
 window/stretch/mode="viewport"
 
 [editor_plugins]
@@ -42,6 +42,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 main_camera=""
 current_camera=""
+current_dialogue_box=""
 
 [input]
 
@@ -77,6 +78,7 @@ interact={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
