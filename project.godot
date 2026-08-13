@@ -31,8 +31,10 @@ gdscript/warnings/unused_signal=0
 
 [display]
 
-window/size/viewport_width=992
+window/size/viewport_width=640
+window/size/viewport_height=480
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [editor_plugins]
 

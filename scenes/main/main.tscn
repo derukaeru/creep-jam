@@ -13,6 +13,7 @@ sky_material = SubResource("ProceduralSkyMaterial_iuonh")
 
 [sub_resource type="Environment" id="Environment_l3cfh"]
 background_mode = 1
+background_color = Color(0.096204735, 0.09620475, 0.096204735, 1)
 sky = SubResource("Sky_k2fmo")
 ambient_light_color = Color(0.31431612, 0.31431612, 0.3143161, 1)
 adjustment_enabled = true
@@ -29,10 +30,10 @@ environment = SubResource("Environment_l3cfh")
 
 [node name="room" parent="map_container" unique_id=877440024 instance=ExtResource("3_k2fmo")]
 
-[node name="main_camera" type="Camera3D" parent="." unique_id=95168899 groups=["current_camera", "main_camera"]]
-transform = Transform3D(1, 0, 0, 0, 0.86745304, 0.4975191, 0, -0.4975191, 0.86745304, 0, 3.6971226, 8.813133)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1116287589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11390352, 5.659915, 0)
-omni_range = 13.51
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11390352, 2.9162617, 0)
+omni_range = 14.735906
 omni_attenuation = 0.402
+
+[node name="main_camera" type="Camera3D" parent="." unique_id=95168899 groups=["current_camera", "main_camera"]]
+transform = Transform3D(1, 0, 0, 0, 0.8533779, 0.52129275, 0, -0.52129275, 0.8533779, 0, 5.510601, 8.192744)
