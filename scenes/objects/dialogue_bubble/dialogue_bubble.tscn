@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bapfe3q2wt6ij"]
+
+[ext_resource type="Script" uid="uid://5vw8moe6kqxk" path="res://scenes/objects/dialogue_bubble/dialogue_bubble.gd" id="1_ikmgb"]
+
+[node name="dialogue_bubble" type="Node3D" unique_id=785408723]
+script = ExtResource("1_ikmgb")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=69668082]
+pixel_size = 0.0011
+billboard = 1
+shaded = true
+fixed_size = true
+texture_filter = 0
+modulate = Color(0.8819366, 0.8819366, 0.88193655, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "this is a label"
+outline_size = 3

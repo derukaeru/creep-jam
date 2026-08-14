@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var model_container: Node3D = $model_container
+@onready var interaction_area: Area3D = $interaction_area
 
 const SPEED: float = 2
 var can_move: bool = true
@@ -37,3 +38,17 @@ func _physics_process(_delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	move_and_slide()
+
+func _input(_event) -> void:
+	if Input.is_action_just_pressed("interact"):
+		interact()
+
+func interact() -> void:
+	var interactions = interaction_area.get_overlapping_areas().filter(
+		func(a) -> bool: 
+			return a is InteractableComponent
+	)
+	
+	for entry in interactions:
+		if entry.active:
+			entry.interact()

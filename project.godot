@@ -44,6 +44,10 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 main_camera=""
 current_dialogue_box=""
 
+[gui]
+
+theme/custom_font="uid://bprfau4nd1dso"
+
 [input]
 
 forward={

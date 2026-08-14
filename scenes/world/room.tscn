@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://bpw37op1o56wp"]
 
 [ext_resource type="ArrayMesh" uid="uid://tiof1jemk00g" path="res://assets/models/room/room.obj" id="1_xgp3c"]
+[ext_resource type="Script" uid="uid://cw8027kkdy1c7" path="res://scripts/components/room_transition.gd" id="2_7lhff"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7lhff"]
 size = Vector3(0.15722656, 3.5166626, 3.9933167)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbd2a"]
 size = Vector3(4.9764557, 3.4780273, 0.25769043)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqgxa"]
+size = Vector3(1, 1.9213867, 1)
 
 [node name="room" type="Node3D" unique_id=877440024]
 
@@ -35,3 +39,13 @@ shape = SubResource("BoxShape3D_mbd2a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038223505, 2.916, 0)
 omni_range = 4.635
 omni_attenuation = -0.824
+
+[node name="outside" type="Area3D" parent="." unique_id=1312517719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.877003)
+script = ExtResource("2_7lhff")
+transition_to = "main_outside"
+metadata/_custom_type_script = "uid://cw8027kkdy1c7"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="outside" unique_id=665876227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46069336, 0)
+shape = SubResource("BoxShape3D_xqgxa")
