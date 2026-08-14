@@ -53,7 +53,7 @@ func transition_zoom_camera() -> void:
 		return print("theres no current camera")
 	
 	var tw: Tween = get_tree().create_tween()
-	tw.tween_property(current_camera, "fov", 20, 0.72)
+	tw.tween_property(current_camera, "fov", 35, 0.72)
 	
 	await tw.finished
 	current_camera.fov = GameManager.normal_fov

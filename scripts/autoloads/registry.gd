@@ -12,5 +12,5 @@ var UID: Dictionary = {
 
 var MAPS: Dictionary = {
 	"room": "uid://bpw37op1o56wp",
-	"main_world": "uid://c6bwf1bgaw6mb",
+	"main_outside": "uid://c6bwf1bgaw6mb",
 }
