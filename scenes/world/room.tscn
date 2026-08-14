@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bpw37op1o56wp"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqn3s"]
+[ext_resource type="Texture2D" uid="uid://cgva7eq3jb4ym" path="res://assets/models/room/room.png" id="1_7lhff"]
+[ext_resource type="ArrayMesh" uid="uid://tiof1jemk00g" path="res://assets/models/room/room.obj" id="1_xgp3c"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_gqn3s"]
-material = SubResource("StandardMaterial3D_gqn3s")
-size = Vector2(15, 15)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbd2a"]
+albedo_texture = ExtResource("1_7lhff")
+texture_filter = 0
 
 [node name="room" type="Node3D" unique_id=877440024]
 
-[node name="floor" type="MeshInstance3D" parent="." unique_id=1787219462]
-mesh = SubResource("PlaneMesh_gqn3s")
+[node name="Room" type="MeshInstance3D" parent="." unique_id=296725401]
+material_override = SubResource("StandardMaterial3D_mbd2a")
+mesh = ExtResource("1_xgp3c")

@@ -17,8 +17,8 @@ dest_files=["res://.godot/imported/player.obj-66dc84576f98845a7456fa8fdcfbcfbb.m
 
 generate_tangents=true
 generate_lods=true
-generate_shadow_mesh=true
-generate_lightmap_uv2=false
+generate_shadow_mesh=false
+generate_lightmap_uv2=true
 generate_lightmap_uv2_texel_size=0.2
 scale_mesh=Vector3(1, 1, 1)
 offset_mesh=Vector3(0, 0, 0)

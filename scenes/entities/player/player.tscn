@@ -6,9 +6,8 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_635qg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjvvg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58kc7"]
 albedo_texture = ExtResource("2_58kc7")
-texture_filter = 0
 
 [node name="player" type="CharacterBody3D" unique_id=1440541998]
 script = ExtResource("1_1hmtu")
@@ -19,7 +18,7 @@ shape = SubResource("CylinderShape3D_635qg")
 
 [node name="model_container" type="Node3D" parent="." unique_id=1037149733]
 
-[node name="player" type="MeshInstance3D" parent="model_container" unique_id=1953481283]
-transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_bjvvg")
+[node name="Player" type="MeshInstance3D" parent="model_container" unique_id=1612387143]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_58kc7")
 mesh = ExtResource("3_nh4ur")

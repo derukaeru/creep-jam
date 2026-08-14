@@ -16,6 +16,10 @@ background_mode = 1
 background_color = Color(0.096204735, 0.09620475, 0.096204735, 1)
 sky = SubResource("Sky_k2fmo")
 ambient_light_color = Color(0.31431612, 0.31431612, 0.3143161, 1)
+fog_enabled = true
+fog_light_color = Color(0.11658018, 0.13075355, 0.15280777, 1)
+fog_density = 0.175
+fog_sky_affect = 0.78
 adjustment_enabled = true
 
 [node name="main" type="Node3D" unique_id=889827138]
@@ -32,8 +36,8 @@ environment = SubResource("Environment_l3cfh")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1116287589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11390352, 2.9162617, 0)
-omni_range = 14.735906
-omni_attenuation = 0.402
+omni_range = 33.376
+omni_attenuation = -1.222
 
 [node name="main_camera" type="Camera3D" parent="." unique_id=95168899 groups=["current_camera", "main_camera"]]
-transform = Transform3D(1, 0, 0, 0, 0.8533779, 0.52129275, 0, -0.52129275, 0.8533779, 0, 5.510601, 8.192744)
+transform = Transform3D(1, 0, 0, 0, 0.8730923, 0.4875551, 0, -0.4875551, 0.8730923, 0, 4.978303, 9.349305)
