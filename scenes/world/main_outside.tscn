@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://c6bwf1bgaw6mb"]
 
+[ext_resource type="Script" uid="uid://bdx4lb63ilvgk" path="res://scenes/world/main_outside.gd" id="1_c1c5w"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_lk7lb"]
 
 [node name="main_outside" type="Node3D" unique_id=1322708044]
+script = ExtResource("1_c1c5w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1591297680]
 mesh = SubResource("PlaneMesh_lk7lb")
@@ -10,3 +13,6 @@ mesh = SubResource("PlaneMesh_lk7lb")
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=143228776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4384854, 0)
 omni_range = 12.159
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1873578285]
+transform = Transform3D(1, 0, 0, 0, 0.89257795, 0.4508931, 0, -0.4508931, 0.89257795, 0, 0.96268606, 1.8491758)

@@ -8,6 +8,7 @@ var map_id: String
 
 func _ready() -> void:
 	EventBus.go_to_map.connect(go_to_map)
+	EventBus.changed_map.connect(changed_map)
 	EventBus.set_camera.connect(set_camera)
 	
 	EventBus.change_env_background_color.connect(change_background_color)
@@ -35,7 +36,13 @@ func go_to_map(id: String) -> void:
 	GameManager.ui.room_transition_anim.play_backwards("transition")
 	await GameManager.ui.room_transition_anim.animation_finished
 	EventBus.player_can_move.emit()
-	
+
+@warning_ignore("unused_parameter")
+func changed_map(prev_map: String, new_map: String) -> void:
+	match new_map:
+		"main_outside":
+			change_background_color(Color("#191919"))
+
 func set_camera(camera: Camera3D) -> void:
 	if not camera:
 		print("there is no camera attached")
@@ -44,6 +51,7 @@ func set_camera(camera: Camera3D) -> void:
 	var current_camera: Camera3D = get_viewport().get_camera_3d()
 	if current_camera:
 		current_camera.current = false
+		current_camera.fov = GameManager.normal_fov
 	
 	camera.current = true
 
@@ -53,7 +61,7 @@ func transition_zoom_camera() -> void:
 		return print("theres no current camera")
 	
 	var tw: Tween = get_tree().create_tween()
-	tw.tween_property(current_camera, "fov", 35, 0.72)
+	tw.tween_property(current_camera, "fov", 55, 0.72)
 	
 	await tw.finished
 	current_camera.fov = GameManager.normal_fov
@@ -66,3 +74,8 @@ func change_background_color(color: Color) -> void:
 
 func change_fog_color(color: Color) -> void:
 	world_env.environment.fog_light_color = color
+
+func set_default_env() -> void:
+	change_background_color(Color("#191919"))
+	change_fog_color(Color("#1e2127"))
+	change_fog_density(0.29)
