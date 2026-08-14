@@ -1,5 +1,6 @@
 extends Node3D
 
+@onready var world_env: WorldEnvironment = $WorldEnvironment
 @onready var map_container: Node3D = $map_container
 
 var old_map_id: String
@@ -8,6 +9,10 @@ var map_id: String
 func _ready() -> void:
 	EventBus.go_to_map.connect(go_to_map)
 	EventBus.set_camera.connect(set_camera)
+	
+	EventBus.change_env_background_color.connect(change_background_color)
+	EventBus.change_env_fog_color.connect(change_fog_color)
+	EventBus.change_env_fog_density.connect(change_fog_density)
 
 func go_to_map(id: String) -> void:
 	EventBus.player_not_move.emit()
@@ -37,3 +42,12 @@ func set_camera(camera: Camera3D) -> void:
 		current_camera.remove_from_group("main_camera")
 	
 	camera.add_to_group("main_camera")
+
+func change_fog_density(value: float) -> void:
+	world_env.environment.fog_density = value
+
+func change_background_color(color: Color) -> void:
+	world_env.environment.background_color = color
+
+func change_fog_color(color: Color) -> void:
+	world_env.environment.fog_light_color = color

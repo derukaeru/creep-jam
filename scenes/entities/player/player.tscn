@@ -5,6 +5,8 @@
 [ext_resource type="ArrayMesh" uid="uid://dciy1fbq1fd21" path="res://assets/models/entities/player/player.obj" id="3_nh4ur"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_635qg"]
+height = 1.4829102
+radius = 0.35058594
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58kc7"]
 albedo_texture = ExtResource("2_58kc7")
@@ -13,12 +15,12 @@ albedo_texture = ExtResource("2_58kc7")
 script = ExtResource("1_1hmtu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=923162987]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99538064, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7368357, 0)
 shape = SubResource("CylinderShape3D_635qg")
 
 [node name="model_container" type="Node3D" parent="." unique_id=1037149733]
 
 [node name="Player" type="MeshInstance3D" parent="model_container" unique_id=1612387143]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_58kc7")
 mesh = ExtResource("3_nh4ur")

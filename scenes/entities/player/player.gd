@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @onready var model_container: Node3D = $model_container
 
-const SPEED: float = 2.6
+const SPEED: float = 2
 var can_move: bool = true
 
 var movement_tw: Tween 

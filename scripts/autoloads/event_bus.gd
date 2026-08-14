@@ -7,3 +7,7 @@ signal player_can_move
 signal player_not_move
 
 signal set_camera(camera: Camera3D)
+
+signal change_env_background_color(color: Color)
+signal change_env_fog_color(color: Color)
+signal change_env_fog_density(value: float)
