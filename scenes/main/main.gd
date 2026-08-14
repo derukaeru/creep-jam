@@ -17,8 +17,9 @@ func _ready() -> void:
 func go_to_map(id: String) -> void:
 	EventBus.player_not_move.emit()
 	
-	# transition here first 
-	# wait for transition to end
+	GameManager.ui.room_transition_anim.play("transition")
+	transition_zoom_camera()
+	await GameManager.ui.room_transition_anim.animation_finished
 	
 	old_map_id = map_id
 	
@@ -30,6 +31,9 @@ func go_to_map(id: String) -> void:
 	
 	map_id = id
 	EventBus.changed_map.emit(old_map_id, map_id)
+	
+	GameManager.ui.room_transition_anim.play_backwards("transition")
+	await GameManager.ui.room_transition_anim.animation_finished
 	EventBus.player_can_move.emit()
 	
 func set_camera(camera: Camera3D) -> void:
@@ -37,11 +41,22 @@ func set_camera(camera: Camera3D) -> void:
 		print("there is no camera attached")
 		return
 	
-	var current_camera: Camera3D = get_tree().get_first_node_in_group("main_camera")
-	if current_camera: 
-		current_camera.remove_from_group("main_camera")
+	var current_camera: Camera3D = get_viewport().get_camera_3d()
+	if current_camera:
+		current_camera.current = false
 	
-	camera.add_to_group("main_camera")
+	camera.current = true
+
+func transition_zoom_camera() -> void:
+	var current_camera: Camera3D = get_viewport().get_camera_3d()
+	if not current_camera:
+		return print("theres no current camera")
+	
+	var tw: Tween = get_tree().create_tween()
+	tw.tween_property(current_camera, "fov", 20, 0.72)
+	
+	await tw.finished
+	current_camera.fov = GameManager.normal_fov
 
 func change_fog_density(value: float) -> void:
 	world_env.environment.fog_density = value

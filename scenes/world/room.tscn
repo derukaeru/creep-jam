@@ -6,7 +6,7 @@
 size = Vector3(0.15722656, 3.5166626, 3.9933167)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbd2a"]
-size = Vector3(6.284729, 3.4780273, 0.25769043)
+size = Vector3(4.9764557, 3.4780273, 0.25769043)
 
 [node name="room" type="Node3D" unique_id=877440024]
 
@@ -16,11 +16,11 @@ mesh = ExtResource("1_xgp3c")
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=605586941]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=462102612]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0541854, 1.2583313, -0.014266968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5634947, 1.2583313, -0.014266968)
 shape = SubResource("BoxShape3D_7lhff")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=330404340]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0734692, 1.2583313, -0.014266968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5659423, 1.2583313, -0.014266968)
 shape = SubResource("BoxShape3D_7lhff")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=2037023182]
@@ -28,5 +28,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105896, 1.2390137, 2.04291
 shape = SubResource("BoxShape3D_mbd2a")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1009239145]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105896, 1.2390137, -2.107039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076065063, 1.2390137, -2.107039)
 shape = SubResource("BoxShape3D_mbd2a")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1310550329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038223505, 2.916, 0)
+omni_range = 4.635
+omni_attenuation = -0.824

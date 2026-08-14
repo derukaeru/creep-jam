@@ -1,8 +1,10 @@
 extends Node
 
-@onready var pause_screen = load(Registry.UID["pause_screen"]).instantiate()
-@onready var ui = load(Registry.UID["ui"]).instantiate()
-var canvas_layer = CanvasLayer.new()
+@onready var pause_screen: PauseScreen = load(Registry.UID["pause_screen"]).instantiate()
+@onready var ui: UI = load(Registry.UID["ui"]).instantiate()
+var canvas_layer: CanvasLayer = CanvasLayer.new()
+
+const normal_fov: float = 75.0
 
 func _ready() -> void:
 	add_child(canvas_layer)
