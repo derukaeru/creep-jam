@@ -18,6 +18,26 @@ func _ready() -> void:
 	)
 
 func _on_interacted() -> void:
-	# check if player has mail with the same id
-	animation.play("interact")
+	var matched_mail: Mail = find_mail()
+	
+	if matched_mail:
+		submit_mail(matched_mail)
+		animation.play("interact")
+	
+func find_mail() -> Mail:
+	var player: Player = Util.get_player()
+	if not player: return
+	
+	for mail: Mail in player.mails:
+		if mail.mail_id == mail_id:
+			return mail
+	
+	return null
+
+func submit_mail(mail: Mail) -> void:
+	var player: Player = Util.get_player()
+	if not player: return
+	
+	player.mails.erase(mail)
+	EventBus.delivered_mail.emit(mail.mail_id, mail.mail_name)
 	

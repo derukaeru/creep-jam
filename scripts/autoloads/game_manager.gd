@@ -10,8 +10,6 @@ var changing_rooms: bool = false
 
 const normal_fov: float = 75.0
 
-var mails: Array = []
-
 func _ready() -> void:
 	add_child(canvas_layer)
 	canvas_layer.layer = 8
@@ -28,5 +26,10 @@ func _process(_d) -> void:
 func change_map(id: String) -> void:
 	if Registry.MAPS.has(id):
 		EventBus.go_to_map.emit(id)
+
+func reset() -> void:
+	changing_rooms = false
+	game_running = false
 	
-	# transition here maybe
+	pause_screen.hide()
+	ui.route_map.hide()

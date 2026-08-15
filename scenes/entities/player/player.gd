@@ -8,6 +8,8 @@ const SPEED: float = 1.5
 var can_move: bool = true
 var movement_tw: Tween 
 
+var mails: Array = []
+
 func _ready() -> void:
 	EventBus.player_can_move.connect(
 		func() -> void: 
