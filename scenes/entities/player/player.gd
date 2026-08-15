@@ -3,6 +3,7 @@ class_name Player extends CharacterBody3D
 @onready var model_container: Node3D = $model_container
 @onready var interaction_area: Area3D = $interaction_area
 
+const gravity: float = 9.8
 const SPEED: float = 1.5
 var can_move: bool = true
 
@@ -20,7 +21,10 @@ func _ready() -> void:
 			velocity = Vector3.ZERO
 	)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	

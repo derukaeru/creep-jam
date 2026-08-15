@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b8yu6to31aiv3"]
+
+[ext_resource type="Script" uid="uid://cmqefons57x4n" path="res://scenes/objects/world/mailbox.gd" id="1_rltjr"]
+[ext_resource type="PackedScene" uid="uid://deqnvv7npmvhr" path="res://scenes/objects/interact_bubble/interact_bubble.tscn" id="2_vqxgf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rltjr"]
+
+[sub_resource type="Animation" id="Animation_rltjr"]
+resource_name = "interact"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vqxgf"]
+_data = {
+&"interact": SubResource("Animation_rltjr")
+}
+
+[node name="mailbox" type="Area3D" unique_id=1421439976]
+script = ExtResource("1_rltjr")
+metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=489897368]
+shape = SubResource("BoxShape3D_rltjr")
+
+[node name="model_container" type="Node3D" parent="." unique_id=616434349]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=855302885]
+libraries/ = SubResource("AnimationLibrary_vqxgf")
+
+[node name="interact_bubble" parent="." unique_id=671375717 instance=ExtResource("2_vqxgf")]
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

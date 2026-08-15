@@ -5,7 +5,7 @@ extends Node3D
 @onready var entities: Node3D = $entities
 
 var old_map_id: String
-var map_id: String
+var map_id: String = "room"
 
 func _ready() -> void:
 	EventBus.go_to_map.connect(go_to_map)
@@ -25,22 +25,34 @@ func go_to_map(id: String) -> void:
 	GameManager.ui.room_transition_anim.play("transition")
 	GameManager.ui.room_transition.show()
 	
+	var map_path: String = Registry.MAPS[id]
+	ResourceLoader.load_threaded_request(map_path)
+	
 	transition_zoom_camera()
 	await GameManager.ui.room_transition_anim.animation_finished
-	
 	old_map_id = map_id
 	
 	for map in map_container.get_children():
 		map.queue_free()
 	
-	var new_map: Node3D = load(Registry.MAPS[id]).instantiate()
+	while ResourceLoader.load_threaded_get_status(map_path) == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+		await get_tree().process_frame
+	
+	var status := ResourceLoader.load_threaded_get_status(map_path)
+	if status != ResourceLoader.THREAD_LOAD_LOADED:
+		print("Failed to load map: %s (status %d)" % [map_path, status])
+		return
+
+	var map_scene: PackedScene = ResourceLoader.load_threaded_get(map_path)
+	var new_map: Node3D = map_scene.instantiate()
 	map_container.add_child(new_map)
 	
 	map_id = id
+	GameManager.ui.room_transition_anim.play_backwards("transition")
 	EventBus.changed_map.emit(old_map_id, map_id)
 	
-	GameManager.ui.room_transition_anim.play_backwards("transition")
 	await GameManager.ui.room_transition_anim.animation_finished
+	
 	GameManager.ui.room_transition.hide()
 	EventBus.player_can_move.emit()
 	GameManager.changing_rooms = false
@@ -53,8 +65,7 @@ func changed_map(prev_map: String, new_map: String) -> void:
 
 func set_camera(camera: Camera3D) -> void:
 	if not camera:
-		print("there is no camera attached")
-		return
+		return print("there is no camera attached")
 	
 	var current_camera: Camera3D = get_viewport().get_camera_3d()
 	if current_camera:
@@ -90,3 +101,6 @@ func set_default_env() -> void:
 
 func add_entities(node: Node3D) -> void:
 	entities.add_child(node)
+
+func get_current_map() -> Node3D:
+	return map_container.get_child(0)

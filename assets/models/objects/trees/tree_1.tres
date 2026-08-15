@@ -5,16 +5,18 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jkce"]
 resource_name = "Branch_2"
-transparency = 4
+transparency = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_cd8aw")
-emission_enabled = true
+uv1_scale = Vector3(0.84, 0.94, 1)
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1uda0"]
 resource_name = "Wood_6"
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("2_nqyac")
-emission_enabled = true
+uv1_scale = Vector3(0.67, 0.16, 0.95)
+texture_filter = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d8xsl"]
 _surfaces = [{

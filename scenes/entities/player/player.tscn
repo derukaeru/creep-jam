@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b0cfnwjjk7t3i" path="res://assets/models/entities/player/player.png" id="2_58kc7"]
 [ext_resource type="ArrayMesh" uid="uid://dciy1fbq1fd21" path="res://assets/models/entities/player/player.obj" id="3_nh4ur"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_635qg"]
-height = 1.1257324
-radius = 0.29736328
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_58kc7"]
+radius = 0.28271484
+height = 1.1357422
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58kc7"]
 albedo_texture = ExtResource("2_58kc7")
@@ -19,8 +19,8 @@ radius = 0.4560547
 script = ExtResource("1_1hmtu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=923162987]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55824685, 0)
-shape = SubResource("CylinderShape3D_635qg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5548289, 0)
+shape = SubResource("CapsuleShape3D_58kc7")
 
 [node name="model_container" type="Node3D" parent="." unique_id=1037149733]
 
