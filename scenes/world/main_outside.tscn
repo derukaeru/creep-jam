@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c6bwf1bgaw6mb"]
 
 [ext_resource type="Script" uid="uid://bdx4lb63ilvgk" path="res://scenes/world/main_outside.gd" id="1_c1c5w"]
+[ext_resource type="PackedScene" uid="uid://dh112vgwaa8ad" path="res://scenes/objects/world/trees/tree_1.tscn" id="2_8ljmi"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lk7lb"]
 
@@ -11,9 +12,14 @@ script = ExtResource("1_c1c5w")
 mesh = SubResource("PlaneMesh_lk7lb")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=143228776]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4384854, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9014018, 0)
 omni_range = 12.159
+omni_attenuation = 0.402
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2063001425]
-transform = Transform3D(1, 0, 0, 0, 0.8730923, 0.4875551, 0, -0.4875551, 0.8730923, 0, 3.6900988, 4.242479)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 4.37, 4.242)
 current = true
+
+[node name="objects" type="Node3D" parent="." unique_id=1723248943]
+
+[node name="tree_1" parent="objects" unique_id=261558623 instance=ExtResource("2_8ljmi")]

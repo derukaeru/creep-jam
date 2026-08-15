@@ -25,6 +25,4 @@ func _ready() -> void:
 
 func _on_interacted() -> void:
 	if not transition_to: return
-	if not Registry.MAPS.has(transition_to):
-		return print("Registry.MAPS has no record of:" + transition_to)
-	EventBus.go_to_map.emit(transition_to) 
+	GameManager.change_map(transition_to)

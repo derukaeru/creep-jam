@@ -3,7 +3,7 @@ class_name Player extends CharacterBody3D
 @onready var model_container: Node3D = $model_container
 @onready var interaction_area: Area3D = $interaction_area
 
-const SPEED: float = 2
+const SPEED: float = 1.5
 var can_move: bool = true
 
 var movement_tw: Tween 
@@ -32,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 			if (movement_tw and not movement_tw.is_valid()) or not movement_tw:
 				movement_tw = get_tree().create_tween()
 				
-				movement_tw.tween_property(model_container, "position:y", 0.2, 0.1)
+				movement_tw.tween_property(model_container, "position:y", 0.2, 0.13)
 				movement_tw.tween_property(model_container, "position:y", 0.0, 0.1)
 				
 				var look_direction = position + direction

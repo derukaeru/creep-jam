@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu7j7xbxtk8y7"
-path.s3tc="res://.godot/imported/room.png-e5ff59b1ad0de0f7d039cfede7900506.s3tc.ctex"
+uid="uid://dpdys0jm5gxab"
+path.s3tc="res://.godot/imported/Branch_11.png-02546fb166a7b401fb5a8e961f4ea926.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/entities/player/room.png"
-dest_files=["res://.godot/imported/room.png-e5ff59b1ad0de0f7d039cfede7900506.s3tc.ctex"]
+source_file="res://assets/models/objects/trees/Branch_11.png"
+dest_files=["res://.godot/imported/Branch_11.png-02546fb166a7b401fb5a8e961f4ea926.s3tc.ctex"]
 
 [params]
 

@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func go_to_map(id: String) -> void:
 	EventBus.player_not_move.emit()
+	GameManager.changing_rooms = true
 	
 	GameManager.ui.room_transition_anim.play("transition")
 	GameManager.ui.room_transition.show()
@@ -39,10 +40,10 @@ func go_to_map(id: String) -> void:
 	EventBus.changed_map.emit(old_map_id, map_id)
 	
 	GameManager.ui.room_transition_anim.play_backwards("transition")
-	GameManager.ui.room_transition.hide()
-	
 	await GameManager.ui.room_transition_anim.animation_finished
+	GameManager.ui.room_transition.hide()
 	EventBus.player_can_move.emit()
+	GameManager.changing_rooms = false
 
 @warning_ignore("unused_parameter")
 func changed_map(prev_map: String, new_map: String) -> void:
