@@ -17,5 +17,5 @@ func _process(delta: float) -> void:
 		if direction.length() > 0:
 			direction = direction.normalized()
 			
-			map_container.position.x += delta * direction.x * 32
-			map_container.position.y += delta * direction.y * 32
+			map_container.position.x += delta * direction.x * 80
+			map_container.position.y += delta * direction.y * 80

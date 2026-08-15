@@ -27,15 +27,6 @@ func _process(_delta: float) -> void:
 				get_tree().paused = true
 				GameManager.pause_screen.show()
 
-func close_route_map() -> void:
-	route_map.animation.play_backwards("open")
-	await route_map.animation.animation_finished
-	
-	route_map.open = false
-	route_map.hide()
-	
-	EventBus.player_can_move.emit()
-
 func open_route_map() -> void:
 	route_map.animation.play("open")
 	route_map.show()
@@ -43,4 +34,13 @@ func open_route_map() -> void:
 	await route_map.animation.animation_finished
 	
 	route_map.open = true
+	EventBus.player_not_move.emit()
+
+func close_route_map() -> void:
+	route_map.animation.play_backwards("open")
+	await route_map.animation.animation_finished
+	
+	route_map.open = false
+	route_map.hide()
+	
 	EventBus.player_can_move.emit()
