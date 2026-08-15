@@ -16,7 +16,7 @@ func change_scene(scene_name: String) -> void:
 	scene_path = Registry.UID[scene_name]
 	
 	var new_load_screen = loading_screen.instantiate()
-	add_child(new_load_screen)
+	GameManager.ui.add_child(new_load_screen)
 	
 	progress_changed.connect(new_load_screen._on_progress_changed)
 	loading_finished.connect(new_load_screen._on_loading_finished)

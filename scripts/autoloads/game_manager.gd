@@ -10,9 +10,11 @@ var changing_rooms: bool = false
 
 const normal_fov: float = 75.0
 
+var mails: Array = []
+
 func _ready() -> void:
 	add_child(canvas_layer)
-	canvas_layer.layer = 5
+	canvas_layer.layer = 8
 	
 	canvas_layer.add_child(ui)
 	ui.add_child(pause_screen)

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://qwnbh6anlo1c"]
+
+[ext_resource type="Script" uid="uid://d17tbhs6yvxgo" path="res://scenes/menu/settings_screen.gd" id="1_5xb6v"]
+
+[sub_resource type="Animation" id="Animation_o1kvl"]
+resource_name = "open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ysam0"]
+_data = {
+&"open": SubResource("Animation_o1kvl")
+}
+
+[node name="settings_screen" type="Control" unique_id=1934551461]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5xb6v")
+
+[node name="background" type="ColorRect" parent="." unique_id=1640539181]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+
+[node name="exit" type="Button" parent="." unique_id=1169018942]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 56.0
+text = "exit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1257350420]
+libraries/ = SubResource("AnimationLibrary_ysam0")
+
+[connection signal="pressed" from="exit" to="." method="exit_pressed"]

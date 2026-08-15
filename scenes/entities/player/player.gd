@@ -6,7 +6,6 @@ class_name Player extends CharacterBody3D
 const gravity: float = 9.8
 const SPEED: float = 1.5
 var can_move: bool = true
-
 var movement_tw: Tween 
 
 func _ready() -> void:

@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://bsgk6rohveaye"]
 
 [ext_resource type="Script" uid="uid://bq7m32vj3rxw6" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
+[ext_resource type="Shader" uid="uid://bdtkqtwhm6ifw" path="res://assets/shaders/buckshot.gdshader" id="2_aac20"]
 [ext_resource type="PackedScene" uid="uid://d8y5na0yx71p" path="res://scenes/ui/route_map.tscn" id="2_f5cxw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aac20"]
 
 [sub_resource type="Animation" id="Animation_u7n8c"]
 length = 0.001
@@ -42,18 +41,26 @@ _data = {
 &"transition": SubResource("Animation_f5cxw")
 }
 
-[node name="ui" type="CanvasLayer" unique_id=1105309692]
-script = ExtResource("1_u7n8c")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aac20"]
+shader = ExtResource("2_aac20")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 0.9800000228
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = false
+shader_parameter/pixel_factor = 1.00000002375
+shader_parameter/enable_posterize = false
+shader_parameter/color_levels = 16.0
+shader_parameter/dither_strength = 0.1490000070775
+shader_parameter/chrom_aberration = 0.0
+shader_parameter/vignette_strength = 0.618000029355
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
-[node name="shader" type="ColorRect" parent="." unique_id=1043751311]
-visible = false
-material = SubResource("ShaderMaterial_aac20")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="ui" type="CanvasLayer" unique_id=1105309692]
+layer = 2
+script = ExtResource("1_u7n8c")
 
 [node name="room_transition" type="ColorRect" parent="." unique_id=2116171725]
 anchors_preset = 15
@@ -61,6 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="room_transition" unique_id=1371450102]
@@ -68,3 +76,13 @@ libraries/ = SubResource("AnimationLibrary_aac20")
 
 [node name="route_map" parent="." unique_id=1380226578 instance=ExtResource("2_f5cxw")]
 visible = false
+mouse_filter = 2
+
+[node name="shader" type="ColorRect" parent="." unique_id=1043751311]
+material = SubResource("ShaderMaterial_aac20")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
