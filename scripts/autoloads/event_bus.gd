@@ -11,3 +11,5 @@ signal set_camera(camera: Camera3D)
 signal change_env_background_color(color: Color)
 signal change_env_fog_color(color: Color)
 signal change_env_fog_density(value: float)
+
+signal add_entities(node: Node3D)

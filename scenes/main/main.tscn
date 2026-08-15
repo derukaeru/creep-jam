@@ -30,3 +30,5 @@ environment = SubResource("Environment_l3cfh")
 [node name="main_camera" type="Camera3D" parent="." unique_id=95168899 groups=["main_camera"]]
 transform = Transform3D(1, 0, 0, 0, 0.8730923, 0.4875551, 0, -0.4875551, 0.8730923, 0, 3.6900988, 4.242479)
 current = true
+
+[node name="entities" type="Node3D" parent="." unique_id=1865042792]

@@ -1,8 +1,12 @@
-extends Node3D
+class_name DialogBubble extends Node3D
 
 @onready var label: Label3D = $Label3D
+@onready var animation: AnimationPlayer = $AnimationPlayer
+
+signal dialogue_finised
 
 var typing: bool = false
+var done: bool = false
 
 var text: String = ""
 var letter_index: int = -1
@@ -23,8 +27,11 @@ func _process(delta: float) -> void:
 		add_letter(text[letter_index])
 	
 	if letter_index >= text.length():
+		animation.play("disappear")
+		await animation.animation_finished
+		
+		dialogue_finised.emit()
 		queue_free()
-		# TODO: remove after a certain time
 
 func add_letter(letter: String) -> void:
 	label.text += letter

@@ -14,5 +14,6 @@ mesh = SubResource("PlaneMesh_lk7lb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4384854, 0)
 omni_range = 12.159
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1873578285]
-transform = Transform3D(1, 0, 0, 0, 0.89257795, 0.4508931, 0, -0.4508931, 0.89257795, 0, 0.96268606, 1.8491758)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2063001425]
+transform = Transform3D(1, 0, 0, 0, 0.8730923, 0.4875551, 0, -0.4875551, 0.8730923, 0, 3.6900988, 4.242479)
+current = true

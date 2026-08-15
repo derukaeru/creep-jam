@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var world_env: WorldEnvironment = $WorldEnvironment
 @onready var map_container: Node3D = $map_container
+@onready var entities: Node3D = $entities
 
 var old_map_id: String
 var map_id: String
@@ -14,11 +15,15 @@ func _ready() -> void:
 	EventBus.change_env_background_color.connect(change_background_color)
 	EventBus.change_env_fog_color.connect(change_fog_color)
 	EventBus.change_env_fog_density.connect(change_fog_density)
+	
+	EventBus.add_entities.connect(add_entities)
 
 func go_to_map(id: String) -> void:
 	EventBus.player_not_move.emit()
 	
 	GameManager.ui.room_transition_anim.play("transition")
+	GameManager.ui.room_transition.show()
+	
 	transition_zoom_camera()
 	await GameManager.ui.room_transition_anim.animation_finished
 	
@@ -34,6 +39,8 @@ func go_to_map(id: String) -> void:
 	EventBus.changed_map.emit(old_map_id, map_id)
 	
 	GameManager.ui.room_transition_anim.play_backwards("transition")
+	GameManager.ui.room_transition.hide()
+	
 	await GameManager.ui.room_transition_anim.animation_finished
 	EventBus.player_can_move.emit()
 
@@ -79,3 +86,6 @@ func set_default_env() -> void:
 	change_background_color(Color("#191919"))
 	change_fog_color(Color("#1e2127"))
 	change_fog_density(0.29)
+
+func add_entities(node: Node3D) -> void:
+	entities.add_child(node)

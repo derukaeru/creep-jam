@@ -8,6 +8,7 @@ var UID: Dictionary = {
 	
 	"ui": "uid://bsgk6rohveaye",
 	"dialogue_bubble": "uid://bapfe3q2wt6ij",
+	"interact_bubble": "uid://deqnvv7npmvhr"
 }
 
 var MAPS: Dictionary = {

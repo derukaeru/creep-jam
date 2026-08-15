@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bsgk6rohveaye"]
 
 [ext_resource type="Script" uid="uid://bq7m32vj3rxw6" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
+[ext_resource type="PackedScene" uid="uid://d8y5na0yx71p" path="res://scenes/ui/route_map.tscn" id="2_f5cxw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aac20"]
 
@@ -64,3 +65,6 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="room_transition" unique_id=1371450102]
 libraries/ = SubResource("AnimationLibrary_aac20")
+
+[node name="route_map" parent="." unique_id=1380226578 instance=ExtResource("2_f5cxw")]
+visible = false

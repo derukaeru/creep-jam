@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://deqnvv7npmvhr"]
+
+[ext_resource type="Script" uid="uid://sjxpo830h118" path="res://scenes/objects/interact_bubble/interact_bubble.gd" id="1_ue4fe"]
+
+[node name="interact_bubble" type="Node3D" unique_id=671375717]
+script = ExtResource("1_ue4fe")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=440234068]
+pixel_size = 0.002
+billboard = 1
+fixed_size = true
+texture_filter = 0
+text = "interact"
+outline_size = 0

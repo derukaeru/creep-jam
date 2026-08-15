@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @onready var model_container: Node3D = $model_container
 @onready var interaction_area: Area3D = $interaction_area
@@ -14,7 +14,11 @@ func _ready() -> void:
 			can_move = true
 			velocity = Vector3.ZERO
 	)
-	EventBus.player_not_move.connect(func() -> void: can_move = false)
+	EventBus.player_not_move.connect(
+		func() -> void: 
+			can_move = false
+			velocity = Vector3.ZERO
+	)
 
 func _physics_process(_delta: float) -> void:
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
@@ -36,7 +40,6 @@ func _physics_process(_delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
-	
 	move_and_slide()
 
 func _input(_event) -> void:

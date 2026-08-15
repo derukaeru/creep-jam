@@ -1,9 +1,12 @@
 extends Node
 
-var dialogue_box
+@onready var dialogue_bubble: PackedScene = load(Registry.UID.dialogue_bubble)
 
-func say(text, to = dialogue_box):
-	pass
-
-func say_letter(letter):
-	pass
+func say(text: String, position: Vector3) -> void:
+	var bubble: DialogBubble = dialogue_bubble.instantiate()
+	bubble.text = text
+	bubble.typing = true
+	
+	bubble.global_position = position
+	
+	EventBus.add_entities.emit(bubble)
