@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://b8yu6to31aiv3"]
 
 [ext_resource type="Script" uid="uid://cmqefons57x4n" path="res://scenes/objects/world/mailbox.gd" id="1_rltjr"]
+[ext_resource type="Texture2D" uid="uid://cdphfbx6gf4mk" path="res://assets/models/objects/mailbox/mailbox.png" id="2_cu3sa"]
 [ext_resource type="PackedScene" uid="uid://deqnvv7npmvhr" path="res://scenes/objects/interact_bubble/interact_bubble.tscn" id="2_vqxgf"]
+[ext_resource type="ArrayMesh" uid="uid://brfir8n05wwnj" path="res://assets/models/objects/mailbox/mailbox.obj" id="4_cu3sa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rltjr"]
+size = Vector3(0.42749023, 0.9987793, 0.6075134)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35kfs"]
+albedo_texture = ExtResource("2_cu3sa")
+emission_enabled = true
+texture_filter = 0
 
 [sub_resource type="Animation" id="Animation_rltjr"]
 resource_name = "interact"
@@ -18,13 +26,20 @@ script = ExtResource("1_rltjr")
 metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=489897368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045288086, 0.4835205, 0.014144897)
 shape = SubResource("BoxShape3D_rltjr")
 
 [node name="model_container" type="Node3D" parent="." unique_id=616434349]
+
+[node name="Mailbox" type="MeshInstance3D" parent="model_container" unique_id=311496385]
+transform = Transform3D(0.81, 0, 0, 0, 0.81, 0, 0, 0, 0.81, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_35kfs")
+mesh = ExtResource("4_cu3sa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=855302885]
 libraries/ = SubResource("AnimationLibrary_vqxgf")
 
 [node name="interact_bubble" parent="." unique_id=671375717 instance=ExtResource("2_vqxgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1497458, 0)
 
 [connection signal="interacted" from="." to="." method="_on_interacted"]

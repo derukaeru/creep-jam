@@ -6,6 +6,8 @@ class_name Player extends CharacterBody3D
 const gravity: float = 9.8
 const SPEED: float = 1.5
 var can_move: bool = true
+
+var look_target: Vector3
 var movement_tw: Tween 
 
 var mails: Array = []
@@ -40,11 +42,12 @@ func _physics_process(delta: float) -> void:
 				movement_tw.tween_property(model_container, "position:y", 0.2, 0.13)
 				movement_tw.tween_property(model_container, "position:y", 0.0, 0.1)
 				
-				var look_direction = position + direction
-				model_container.look_at(look_direction)
+				look_target = Vector3(velocity.x, 0, velocity.z)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	model_container.rotation.y = lerp_angle(model_container.rotation.y, atan2(-look_target.x, -look_target.z), .23)
 	move_and_slide()
 
 func _input(_event) -> void:
