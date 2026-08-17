@@ -22,10 +22,10 @@ func _process(_delta: float) -> void:
 		else:
 			if get_tree().paused:
 				get_tree().paused = false
-				GameManager.pause_screen.hide()
+				GameManager.pause_screen.open()
 			else:
 				get_tree().paused = true
-				GameManager.pause_screen.show()
+				GameManager.pause_screen.close()
 
 func open_route_map() -> void:
 	route_map.animation.play("open")

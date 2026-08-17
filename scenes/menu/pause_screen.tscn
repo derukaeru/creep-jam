@@ -1,14 +1,80 @@
 [gd_scene format=3 uid="uid://7jemke30bxqq"]
 
 [ext_resource type="Script" uid="uid://b44ylgearug0j" path="res://scenes/menu/pause_screen.gd" id="1_s4fn5"]
+[ext_resource type="Texture2D" uid="uid://bc08e4dmn7f3t" path="res://assets/sprites/menu/menu_border.png" id="2_04k7x"]
+[ext_resource type="PackedScene" uid="uid://qwnbh6anlo1c" path="res://scenes/menu/settings_screen.tscn" id="3_ruv5c"]
+[ext_resource type="Shader" uid="uid://bdtkqtwhm6ifw" path="res://assets/shaders/buckshot.gdshader" id="4_x8jkt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04k7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wx27k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ruv5c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pp2s5"]
+shader = ExtResource("4_x8jkt")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = false
+shader_parameter/pixel_factor = 3.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 16.0
+shader_parameter/dither_strength = 0.2550000121125
+shader_parameter/chrom_aberration = 0.0350000016625
+shader_parameter/vignette_strength = 1.186000056335
+shader_parameter/grain_strength = 0.0
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_ruv5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_x8jkt"]
+resource_name = "open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pp2s5"]
+_data = {
+&"RESET": SubResource("Animation_ruv5c"),
+&"open": SubResource("Animation_x8jkt")
+}
 
 [node name="pause_screen" type="Control" unique_id=2145161773]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1e-05)
 script = ExtResource("1_s4fn5")
 
 [node name="background" type="ColorRect" parent="." unique_id=655089056]
@@ -16,6 +82,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6392157)
@@ -38,17 +108,60 @@ size_flags_vertical = 3
 [node name="resume" type="Button" parent="VBoxContainer" unique_id=1698791073]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_04k7x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_04k7x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_04k7x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_04k7x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_04k7x")
 text = "resume"
 
 [node name="settings" type="Button" parent="VBoxContainer" unique_id=640017073]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wx27k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wx27k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wx27k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wx27k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wx27k")
 text = "settings"
 
 [node name="exit" type="Button" parent="VBoxContainer" unique_id=1152742921]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ruv5c")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ruv5c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ruv5c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ruv5c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ruv5c")
 text = "exit"
+
+[node name="border" type="TextureRect" parent="." unique_id=576059196]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+mouse_filter = 2
+texture = ExtResource("2_04k7x")
+
+[node name="settings_screen" parent="." unique_id=1934551461 instance=ExtResource("3_ruv5c")]
+layout_mode = 1
+
+[node name="shader" type="ColorRect" parent="." unique_id=81044591]
+material = SubResource("ShaderMaterial_pp2s5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -240.0
+offset_right = -320.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1219063288]
+libraries/ = SubResource("AnimationLibrary_pp2s5")
 
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]

@@ -1,11 +1,23 @@
 class_name PauseScreen extends Control
 
+@onready var settings_screen: SettingsScreen = $settings_screen
+@onready var animation: AnimationPlayer = $AnimationPlayer
+
 func _on_resume_pressed() -> void:
-	get_tree().paused = false
-	hide()
+	close()
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	settings_screen.open()
 
 func _on_exit_pressed() -> void:
 	SceneChanger.change_scene("title_screen")
+
+func open() -> void:
+	show()
+	animation.play("open")
+
+func close() -> void:
+	animation.play_backwards("open")
+	await animation.animation_finished
+	hide()
+	get_tree().paused = false
