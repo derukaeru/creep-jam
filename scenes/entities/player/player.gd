@@ -4,7 +4,7 @@ class_name Player extends CharacterBody3D
 @onready var interaction_area: Area3D = $interaction_area
 
 const gravity: float = 9.8
-const SPEED: float = 1.5
+const SPEED: float = 10.5
 var can_move: bool = true
 
 var look_target: Vector3
