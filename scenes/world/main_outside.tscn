@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bdx4lb63ilvgk" path="res://scenes/world/main_outside.gd" id="1_c1c5w"]
 [ext_resource type="Terrain3DAssets" uid="uid://eshmwqqujqjh" path="res://terrain/main_outside_mesh_assets.tres" id="2_3npgm"]
+[ext_resource type="PackedScene" uid="uid://idtsuiyxp6q6" path="res://scenes/objects/world/lamppost.tscn" id="3_3npgm"]
+[ext_resource type="PackedScene" uid="uid://dpu23nyv1axev" path="res://scenes/objects/world/buildings/building_0.tscn" id="4_3npgm"]
+[ext_resource type="PackedScene" uid="uid://c6u2wjcyipph6" path="res://scenes/objects/world/snowpile.tscn" id="4_bwrwn"]
 [ext_resource type="PackedScene" uid="uid://cvto7deo7w0hl" path="res://scenes/particles/snow.tscn" id="4_rtp6k"]
 
 [sub_resource type="Gradient" id="Gradient_rtp6k"]
@@ -44,7 +47,6 @@ _shader_parameters = {
 &"noise_texture": SubResource("NoiseTexture2D_bwrwn"),
 &"projection_threshold": null
 }
-show_checkered = true
 
 [node name="main_outside" type="Node3D" unique_id=1322708044]
 script = ExtResource("1_c1c5w")
@@ -54,28 +56,39 @@ data_directory = "res://terrain"
 material = SubResource("Terrain3DMaterial_d0ssp")
 assets = ExtResource("2_3npgm")
 collision_mode = 3
-show_checkered = true
 top_level = true
 metadata/_edit_lock_ = true
 
 [node name="objects" type="Node3D" parent="." unique_id=1723248943]
 
+[node name="lamppost" parent="objects" unique_id=77967068 instance=ExtResource("3_3npgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.147944, 15.532106, 52.20925)
+
+[node name="snowpile" parent="objects" unique_id=660555347 instance=ExtResource("4_bwrwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.89215, 16.009596, 62.245907)
+
+[node name="snowpile2" parent="objects" unique_id=1722113007 instance=ExtResource("4_bwrwn")]
+transform = Transform3D(0.18096548, 0, 0.98348945, 0, 1, 0, -0.98348945, 0, 0.18096548, 27.491005, 16.009596, 64.21686)
+
 [node name="spawns" type="Node3D" parent="." unique_id=1899116206]
 
 [node name="first_room" type="Marker3D" parent="spawns" unique_id=1943223690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.396538, 39.447506, -86.80943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.77695, 26.945326, 57.57606)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=143228776]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.92763, 89.41389, -96.513176)
-omni_range = 246.969
-omni_attenuation = -0.411
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.92763, 89.41389, 76.8668)
+omni_range = 0.001
+omni_attenuation = 0.089
 
 [node name="snow" parent="." unique_id=1535659430 instance=ExtResource("4_rtp6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4796939, 0)
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2063001425]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 4.37, 4.242)
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 42.463055, 4.242)
 current = true
 
 [node name="buildings" type="Node3D" parent="." unique_id=1794208895]
+
+[node name="building_0" parent="buildings" unique_id=717859483 instance=ExtResource("4_3npgm")]
+transform = Transform3D(0.84042466, 0, -0.5419283, 0, 1, 0, 0.5419283, 0, 0.84042466, 13.818508, 16.071095, 44.310513)

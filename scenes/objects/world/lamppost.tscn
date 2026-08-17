@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://idtsuiyxp6q6"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwqjecfr6h17y" path="res://assets/models/objects/lamppost/lamppost.obj" id="1_k8bul"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xq00"]
+size = Vector3(0.12658691, 2.1113892, 0.1328125)
+
+[node name="lamppost" type="StaticBody3D" unique_id=77967068]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=884460881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012817383, 0.5556946, 0.005859375)
+shape = SubResource("BoxShape3D_3xq00")
+
+[node name="Lamppost" type="MeshInstance3D" parent="." unique_id=153832815]
+transform = Transform3D(1.215, 0, 0, 0, 1.215, 0, 0, 0, 1.215, 0, 0, 0)
+mesh = ExtResource("1_k8bul")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=623428722]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 4.232786, 0.4061043)
+spot_range = 14.129
+spot_attenuation = -0.98
+spot_angle = 75.75

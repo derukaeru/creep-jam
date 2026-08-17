@@ -10,10 +10,11 @@ height = 1.1357422
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58kc7"]
 albedo_texture = ExtResource("2_58kc7")
+texture_filter = 0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_58kc7"]
 height = 1.5041809
-radius = 0.4560547
+radius = 0.50097656
 
 [node name="player" type="CharacterBody3D" unique_id=1440541998 groups=["player"]]
 script = ExtResource("1_1hmtu")

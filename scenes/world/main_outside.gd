@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	var player: Player = Util.get_player()
 	if not player: return
 	
-	camera.global_position = player.global_position + Vector3(0.0, 4.3, 3.6)
+	camera.global_position = player.global_position + Vector3(0.0, 3.7, 3.6)
 
 func changed_map(prev: String, _new: String) -> void:
 	var player: Player = Util.get_player()
