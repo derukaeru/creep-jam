@@ -3,7 +3,7 @@ class_name DialogBubble extends Node3D
 @onready var label: Label3D = $Label3D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
-signal dialogue_finised
+signal dialogue_finished
 
 var typing: bool = false
 var done: bool = false
@@ -30,8 +30,7 @@ func _process(delta: float) -> void:
 		animation.play("disappear")
 		await animation.animation_finished
 		
-		dialogue_finised.emit()
-		queue_free()
+		dialogue_finished.emit()
 
 func add_letter(letter: String) -> void:
 	label.text += letter

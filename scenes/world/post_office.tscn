@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b1x76yhq81h6t"]
+
+[ext_resource type="Script" uid="uid://ddvv4livyubl5" path="res://scenes/world/post_office.gd" id="1_vtv0a"]
+[ext_resource type="Script" uid="uid://cw8027kkdy1c7" path="res://scripts/components/room_transition.gd" id="2_bh5ah"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8q0tj"]
+size = Vector3(16, 0.02, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o063y"]
+size = Vector3(1, 8, 1)
+
+[node name="post_office" type="Node3D" unique_id=1248722810]
+script = ExtResource("1_vtv0a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=52435376]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1401506155]
+shape = SubResource("BoxShape3D_8q0tj")
+
+[node name="RoomTransition" type="Area3D" parent="." unique_id=736035623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9519534, 7.6168413)
+script = ExtResource("2_bh5ah")
+transition_to = "main_outside"
+interact_text = "leave"
+metadata/_custom_type_script = "uid://cw8027kkdy1c7"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomTransition" unique_id=479917046]
+shape = SubResource("BoxShape3D_o063y")
+
+[node name="camera_pivot" type="Marker3D" parent="." unique_id=2050848177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.708869, 9.324944)
+
+[node name="entrance" type="Marker3D" parent="." unique_id=1581289131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.6955895)

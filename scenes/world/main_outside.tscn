@@ -4,7 +4,6 @@
 [ext_resource type="Terrain3DAssets" uid="uid://eshmwqqujqjh" path="res://terrain/main_outside_mesh_assets.tres" id="2_3npgm"]
 [ext_resource type="PackedScene" uid="uid://idtsuiyxp6q6" path="res://scenes/objects/world/lamppost.tscn" id="3_3npgm"]
 [ext_resource type="PackedScene" uid="uid://dpu23nyv1axev" path="res://scenes/objects/world/buildings/building_0.tscn" id="4_3npgm"]
-[ext_resource type="PackedScene" uid="uid://c6u2wjcyipph6" path="res://scenes/objects/world/snowpile.tscn" id="4_bwrwn"]
 [ext_resource type="PackedScene" uid="uid://cvto7deo7w0hl" path="res://scenes/particles/snow.tscn" id="4_rtp6k"]
 
 [sub_resource type="Gradient" id="Gradient_rtp6k"]
@@ -63,14 +62,6 @@ metadata/_edit_lock_ = true
 
 [node name="lamppost" parent="objects" unique_id=77967068 instance=ExtResource("3_3npgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.147944, 15.532106, 52.20925)
-
-[node name="snowpile" parent="objects" unique_id=660555347 instance=ExtResource("4_bwrwn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.89215, 16.009596, 62.245907)
-
-[node name="snowpile2" parent="objects" unique_id=1722113007 instance=ExtResource("4_bwrwn")]
-transform = Transform3D(0.18096548, 0, 0.98348945, 0, 1, 0, -0.98348945, 0, 0.18096548, 27.491005, 16.009596, 64.21686)
-
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="objects" unique_id=720321902]
 
 [node name="spawns" type="Node3D" parent="." unique_id=1899116206]
 
