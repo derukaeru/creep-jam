@@ -69,6 +69,7 @@ func set_camera(camera_marker: Marker3D, pivot: Vector3 = Vector3.ZERO, wander_f
 	var player: Player = Util.get_player()
 	if not player: return
 	
+	player.can_rotate = !wander_free
 	player.camera_anchor.top_level = wander_free
 	player.camera_anchor.global_position = Vector3.ZERO
 	player.camera_anchor.position = pivot

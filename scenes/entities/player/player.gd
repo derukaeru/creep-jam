@@ -7,7 +7,9 @@ class_name Player extends CharacterBody3D
 @onready var camera: Camera3D = $camera_anchor/Camera3D
 
 const gravity: float = 9.8
-const SPEED: float = 10.5
+const SPEED: float = 1.5
+var target_rotation: float = 0.0
+
 var can_move: bool = true
 var can_rotate: bool = false
 
@@ -33,7 +35,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= gravity * delta
 	
 	var input_dir: Vector2 = Input.get_vector("left", "right", "forward", "backward")
-	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var cam_basis: Basis = camera_anchor.global_transform.basis
+	var direction = (cam_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	direction.y = 0
+	direction = direction.normalized()
 	
 	if can_move:
 		if direction:
@@ -61,15 +67,20 @@ func _physics_process(delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	model_container.rotation.y = lerp_angle(model_container.rotation.y, atan2(-look_target.x, -look_target.z), .23)
+	if abs(target_rotation - camera_anchor.rotation.y) > 0.1:
+		camera_anchor.rotation.y = lerp(camera_anchor.rotation.y, target_rotation, 0.2)
+	
 	move_and_slide()
 
-func _input(_event) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		interact()
 	
 	if can_rotate:
-		var rotate_axis: float = Input.get_axis("ui_left", "ui_right")
-		
+		if Input.is_action_just_pressed("ui_left"):
+			target_rotation -= deg_to_rad(60)
+		if Input.is_action_just_pressed("ui_right"):
+			target_rotation += deg_to_rad(60)
 
 func interact() -> void:
 	var interactions = interaction_area.get_overlapping_areas().filter(
