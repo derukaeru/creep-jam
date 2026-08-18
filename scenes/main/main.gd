@@ -69,12 +69,12 @@ func set_camera(camera_marker: Marker3D, pivot: Vector3 = Vector3.ZERO, wander_f
 	var player: Player = Util.get_player()
 	if not player: return
 	
+	player.camera_anchor.top_level = wander_free
+	player.camera_anchor.global_position = Vector3.ZERO
 	player.camera_anchor.position = pivot
 	
 	player.camera.position = camera_marker.position
 	player.camera.rotation = camera_marker.rotation
-	
-	player.camera_anchor.top_level = wander_free
 
 func transition_zoom_camera() -> void:
 	var current_camera: Camera3D = get_viewport().get_camera_3d()

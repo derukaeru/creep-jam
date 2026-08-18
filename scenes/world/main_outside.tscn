@@ -75,12 +75,7 @@ transform = Transform3D(0.18096548, 0, 0.98348945, 0, 1, 0, -0.98348945, 0, 0.18
 [node name="spawns" type="Node3D" parent="." unique_id=1899116206]
 
 [node name="first_room" type="Marker3D" parent="spawns" unique_id=1943223690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8901067, 17.513533, 55.128403)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=143228776]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.92763, 89.41389, 76.8668)
-omni_range = 0.001
-omni_attenuation = 0.089
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4282055, 16.945253, 54.423447)
 
 [node name="snow" parent="." unique_id=1535659430 instance=ExtResource("4_rtp6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4796939, 0)
