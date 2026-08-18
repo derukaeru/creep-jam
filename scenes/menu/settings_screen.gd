@@ -12,3 +12,9 @@ func exit_pressed() -> void:
 func open() -> void:
 	show()
 	animation.play("open")
+
+func mouse_entered(source: Button) -> void:
+	source.text = "> " + source.text + " <" if not source.text.begins_with("> ") else source.text
+
+func mouse_exited(source: Button) -> void:
+	source.text = source.text.trim_prefix("> ").trim_suffix(" <")

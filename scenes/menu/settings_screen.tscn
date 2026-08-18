@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://d17tbhs6yvxgo" path="res://scenes/menu/settings_screen.gd" id="1_5xb6v"]
 [ext_resource type="Texture2D" uid="uid://bc08e4dmn7f3t" path="res://assets/sprites/menu/menu_border.png" id="2_o1kvl"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1kvl"]
-
 [sub_resource type="Animation" id="Animation_ysam0"]
 length = 0.001
 tracks/0/type = "value"
@@ -43,6 +41,7 @@ _data = {
 }
 
 [node name="settings_screen" type="Control" unique_id=1934551461]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,12 +72,8 @@ offset_left = -288.0
 offset_top = -208.0
 offset_right = -176.0
 offset_bottom = -160.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_o1kvl")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_o1kvl")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_o1kvl")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_o1kvl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_o1kvl")
 text = "exit"
+flat = true
 
 [node name="border" type="TextureRect" parent="." unique_id=662283746]
 layout_mode = 0
@@ -92,4 +87,6 @@ texture = ExtResource("2_o1kvl")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1257350420]
 libraries/ = SubResource("AnimationLibrary_ysam0")
 
+[connection signal="mouse_entered" from="exit" to="." method="mouse_entered" flags=18]
+[connection signal="mouse_exited" from="exit" to="." method="mouse_exited" flags=18]
 [connection signal="pressed" from="exit" to="." method="exit_pressed"]

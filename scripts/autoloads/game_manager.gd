@@ -1,6 +1,4 @@
 extends Node
-
-@onready var pause_screen: PauseScreen = load(Registry.UID.pause_screen).instantiate()
 @onready var ui: UI = load(Registry.UID.ui).instantiate()
 
 var canvas_layer: CanvasLayer = CanvasLayer.new()
@@ -15,12 +13,9 @@ func _ready() -> void:
 	canvas_layer.layer = 8
 	
 	canvas_layer.add_child(ui)
-	ui.add_child(pause_screen)
-	
-	pause_screen.hide()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _process(_d) -> void:
+func _process(_d: float) -> void:
 	pass
 
 func change_map(id: String) -> void:
@@ -31,5 +26,5 @@ func reset() -> void:
 	changing_rooms = false
 	game_running = false
 	
-	pause_screen.hide()
+	ui.pause_screen.hide()
 	ui.route_map.hide()

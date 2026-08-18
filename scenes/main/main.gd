@@ -17,6 +17,8 @@ func _ready() -> void:
 	EventBus.change_env_fog_density.connect(change_fog_density)
 	
 	EventBus.add_entities.connect(add_entities)
+	
+	go_to_map("room")
 
 func go_to_map(id: String) -> void:
 	EventBus.player_not_move.emit()
@@ -63,16 +65,16 @@ func changed_map(prev_map: String, new_map: String) -> void:
 		"main_outside":
 			change_background_color(Color("#191919"))
 
-func set_camera(camera: Camera3D) -> void:
-	if not camera:
-		return print("there is no camera attached")
+func set_camera(camera_marker: Marker3D, pivot: Vector3 = Vector3.ZERO, wander_free: bool = false) -> void:
+	var player: Player = Util.get_player()
+	if not player: return
 	
-	var current_camera: Camera3D = get_viewport().get_camera_3d()
-	if current_camera:
-		current_camera.current = false
-		current_camera.fov = GameManager.normal_fov
+	player.camera_anchor.position = pivot
 	
-	camera.current = true
+	player.camera.position = camera_marker.position
+	player.camera.rotation = camera_marker.rotation
+	
+	player.camera_anchor.top_level = wander_free
 
 func transition_zoom_camera() -> void:
 	var current_camera: Camera3D = get_viewport().get_camera_3d()

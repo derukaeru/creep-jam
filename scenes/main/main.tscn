@@ -27,8 +27,4 @@ environment = SubResource("Environment_l3cfh")
 
 [node name="room" parent="map_container" unique_id=877440024 instance=ExtResource("3_k2fmo")]
 
-[node name="main_camera" type="Camera3D" parent="." unique_id=95168899 groups=["main_camera"]]
-transform = Transform3D(1, 0, 0, 0, 0.91131705, 0.41170537, 0, -0.41170537, 0.91131705, 0, 3.4141755, 4.242479)
-current = true
-
 [node name="entities" type="Node3D" parent="." unique_id=1865042792]

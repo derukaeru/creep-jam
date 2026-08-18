@@ -3,6 +3,9 @@ class_name Player extends CharacterBody3D
 @onready var model_container: Node3D = $model_container
 @onready var interaction_area: Area3D = $interaction_area
 
+@onready var camera_anchor: Node3D = $camera_anchor
+@onready var camera: Camera3D = $camera_anchor/Camera3D
+
 const gravity: float = 9.8
 const SPEED: float = 10.5
 var can_move: bool = true

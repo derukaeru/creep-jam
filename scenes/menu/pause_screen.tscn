@@ -66,6 +66,7 @@ _data = {
 }
 
 [node name="pause_screen" type="Control" unique_id=2145161773]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -163,6 +164,12 @@ grow_vertical = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1219063288]
 libraries/ = SubResource("AnimationLibrary_pp2s5")
 
+[connection signal="mouse_entered" from="VBoxContainer/resume" to="." method="mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/resume" to="." method="mouse_exited" flags=18]
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/settings" to="." method="mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/settings" to="." method="mouse_exited" flags=18]
 [connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/exit" to="." method="mouse_entered" flags=18]
+[connection signal="mouse_exited" from="VBoxContainer/exit" to="." method="mouse_exited" flags=18]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

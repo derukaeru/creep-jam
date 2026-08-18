@@ -6,7 +6,7 @@ signal go_to_map(map_id: String)
 signal player_can_move
 signal player_not_move
 
-signal set_camera(camera: Camera3D)
+signal set_camera(pivot: Vector3, position: Vector3, rotation: Vector3, follow_player: bool)
 
 signal change_env_background_color(color: Color)
 signal change_env_fog_color(color: Color)

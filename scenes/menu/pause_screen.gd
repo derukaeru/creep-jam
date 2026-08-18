@@ -3,6 +3,9 @@ class_name PauseScreen extends Control
 @onready var settings_screen: SettingsScreen = $settings_screen
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	hide()
+
 func _on_resume_pressed() -> void:
 	close()
 
@@ -21,3 +24,9 @@ func close() -> void:
 	await animation.animation_finished
 	hide()
 	get_tree().paused = false
+
+func mouse_entered(source: Button) -> void:
+	source.text = "> " + source.text + " <" if not source.text.begins_with("> ") else source.text
+
+func mouse_exited(source: Button) -> void:
+	source.text = source.text.trim_prefix("> ").trim_suffix(" <")

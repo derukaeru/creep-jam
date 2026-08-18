@@ -6,3 +6,9 @@ func start_pressed() -> void:
 
 func settings_pressed() -> void:
 	settings_screen.open()
+
+func mouse_entered(source: Button) -> void:
+	source.text = "> " + source.text + " <" if not source.text.begins_with("> ") else source.text
+
+func mouse_exited(source: Button) -> void:
+	source.text = source.text.trim_prefix("> ").trim_suffix(" <")

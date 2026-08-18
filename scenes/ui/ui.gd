@@ -1,5 +1,6 @@
 class_name UI extends CanvasLayer
 
+@onready var pause_screen: PauseScreen = $pause_screen
 @onready var room_transition: ColorRect = $room_transition
 @onready var room_transition_anim: AnimationPlayer = $room_transition/AnimationPlayer
 @onready var route_map: RouteMap = $route_map
@@ -21,11 +22,14 @@ func _process(_delta: float) -> void:
 			close_route_map()
 		else:
 			if get_tree().paused:
-				get_tree().paused = false
-				GameManager.pause_screen.open()
+				if GameManager.settings_screen.visible:
+					GameManager.pause_screen.settings_screen.exit_pressed()
+				else:
+					get_tree().paused = false
+					GameManager.pause_screen.close()
 			else:
 				get_tree().paused = true
-				GameManager.pause_screen.close()
+				GameManager.pause_screen.open()
 
 func open_route_map() -> void:
 	route_map.animation.play("open")

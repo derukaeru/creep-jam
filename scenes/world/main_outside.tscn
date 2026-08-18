@@ -75,7 +75,7 @@ transform = Transform3D(0.18096548, 0, 0.98348945, 0, 1, 0, -0.98348945, 0, 0.18
 [node name="spawns" type="Node3D" parent="." unique_id=1899116206]
 
 [node name="first_room" type="Marker3D" parent="spawns" unique_id=1943223690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.77695, 26.945326, 57.57606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8901067, 17.513533, 55.128403)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=143228776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.92763, 89.41389, 76.8668)
@@ -86,11 +86,10 @@ omni_attenuation = 0.089
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4796939, 0)
 visible = false
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2063001425]
-transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 42.463055, 4.242)
-current = true
-
 [node name="buildings" type="Node3D" parent="." unique_id=1794208895]
 
 [node name="building_0" parent="buildings" unique_id=717859483 instance=ExtResource("4_3npgm")]
 transform = Transform3D(0.84042466, 0, -0.5419283, 0, 1, 0, 0.5419283, 0, 0.84042466, 13.818508, 16.071095, 44.310513)
+
+[node name="main_camera_pivot_1" type="Marker3D" parent="." unique_id=422682092]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 3.7, 3.6)

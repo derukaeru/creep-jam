@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bq7m32vj3rxw6" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
 [ext_resource type="Shader" uid="uid://bdtkqtwhm6ifw" path="res://assets/shaders/buckshot.gdshader" id="2_aac20"]
 [ext_resource type="PackedScene" uid="uid://d8y5na0yx71p" path="res://scenes/ui/route_map.tscn" id="2_f5cxw"]
+[ext_resource type="PackedScene" uid="uid://7jemke30bxqq" path="res://scenes/menu/pause_screen.tscn" id="3_g5kmx"]
 
 [sub_resource type="Animation" id="Animation_u7n8c"]
 length = 0.001
@@ -77,6 +78,9 @@ libraries/ = SubResource("AnimationLibrary_aac20")
 [node name="route_map" parent="." unique_id=1380226578 instance=ExtResource("2_f5cxw")]
 visible = false
 mouse_filter = 2
+
+[node name="pause_screen" parent="." unique_id=2145161773 instance=ExtResource("3_g5kmx")]
+visible = false
 
 [node name="shader" type="ColorRect" parent="." unique_id=1043751311]
 material = SubResource("ShaderMaterial_aac20")
