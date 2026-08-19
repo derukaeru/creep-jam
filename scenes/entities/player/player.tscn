@@ -41,3 +41,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0203505, 0)
 
 [node name="Camera3D" type="Camera3D" parent="camera_anchor" unique_id=344700913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57851696, 1.8085278)
+fov = 80.0

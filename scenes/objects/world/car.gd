@@ -1,5 +1,6 @@
 class_name Car extends VehicleBody3D
 
+@onready var model_container: Node3D = $model_container
 @onready var leave_marker: Marker3D = $leave_marker
 @onready var player_seat: Marker3D = $player_seat
 
@@ -21,6 +22,8 @@ func _physics_process(delta: float) -> void:
 	if not player: return
 	
 	player.global_position = player_seat.global_position
+	player.target_rotation = rotation.y
+	
 	steering = move_toward(steering, Input.get_axis("right", "left") * max_steer, delta * 10)
 	
 	var acceleration_inp: float = Input.get_axis("backward", "forward")
@@ -40,6 +43,7 @@ func interacted() -> void:
 		player.can_move = true
 		player.global_position = global_position + Vector3(2.0, 0.0, 0.0)
 		player.collision.set_deferred("disabled", false)
+		player.camera.fov = 100.0
 		
 		player_in = false
 		freeze = true
@@ -52,6 +56,7 @@ func interacted() -> void:
 		player.can_move = false
 		player.target_rotation = 0.0
 		player.collision.set_deferred("disabled", true)
+		player.camera.fov = 80.0
 		
 		player_in = true
 		freeze = false
@@ -60,3 +65,11 @@ func interacted() -> void:
 		brake = 0.0
 		engine_force = 0.0
 	
+	var tw: Tween = get_tree().create_tween()
+	tw.tween_property(model_container, "scale:x", 0.9, 0.05)
+	tw.parallel()
+	tw.tween_property(model_container, "scale:y", 1.1, 0.05)
+	
+	tw.tween_property(model_container, "scale:x", 1.0, 0.05)
+	tw.parallel()
+	tw.tween_property(model_container, "scale:y", 1.0, 0.05)
