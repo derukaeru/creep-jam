@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dj1tk7mo3fyg3" path="res://scripts/components/interactable.gd" id="1_nx0m7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_imdml"]
+height = 0.9482422
+radius = 0.25048828
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_r1pn6"]
 
@@ -16,19 +18,20 @@ _data = {
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oy0jl"]
-radius = 0.77441406
+height = 1.0615234
+radius = 0.36279297
 
 [node name="static_npc" type="StaticBody3D" unique_id=542692205]
 script = ExtResource("1_imdml")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2118356212]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4741211, 0)
 shape = SubResource("CylinderShape3D_imdml")
 
 [node name="model_container" type="Node3D" parent="." unique_id=2112299809]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="model_container" unique_id=871222857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.47461998, 0)
 mesh = SubResource("CapsuleMesh_r1pn6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=892406241]
@@ -39,7 +42,7 @@ script = ExtResource("1_nx0m7")
 metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="talk_area" unique_id=1388422148]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5307617, 0)
 shape = SubResource("CylinderShape3D_oy0jl")
 
 [connection signal="interacted" from="talk_area" to="." method="talk_interacted"]

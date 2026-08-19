@@ -39,7 +39,13 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=640
 window/size/viewport_height=480
+window/size/window_width_override=1280
+window/size/window_height_override=960
 window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/d4lif/OneDrive/Documents/creep-jam/recording.avi"
 
 [editor_plugins]
 

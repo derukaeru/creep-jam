@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bk4syjlqdgmf7" path="res://scenes/world/room.gd" id="1_mbd2a"]
 [ext_resource type="ArrayMesh" uid="uid://tiof1jemk00g" path="res://assets/models/room/room.obj" id="1_xgp3c"]
 [ext_resource type="Script" uid="uid://cw8027kkdy1c7" path="res://scripts/components/room_transition.gd" id="2_7lhff"]
+[ext_resource type="PackedScene" uid="uid://bjt15iuday65v" path="res://scenes/entities/npc/static_npc.tscn" id="4_xqgxa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7lhff"]
 size = Vector3(0.15722656, 3.5166626, 3.9933167)
@@ -62,3 +63,8 @@ shape = SubResource("BoxShape3D_xqgxa")
 
 [node name="main_camera_pivot_1" type="Marker3D" parent="." unique_id=1274540249]
 transform = Transform3D(1, 0, 0, 0, 0.9114033, 0.41151434, 0, -0.41151434, 0.9114033, 0, 3.414, 4.242)
+
+[node name="static_npc" parent="." unique_id=542692205 instance=ExtResource("4_xqgxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6749213, 0, 0)
+NAME = "postman"
+dialogue_paragraph = "greet"

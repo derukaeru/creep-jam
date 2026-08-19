@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dpu23nyv1axev" path="res://scenes/objects/world/buildings/building_0.tscn" id="4_3npgm"]
 [ext_resource type="PackedScene" uid="uid://dh112vgwaa8ad" path="res://scenes/objects/world/trees/tree_1.tscn" id="4_bwrwn"]
 [ext_resource type="PackedScene" uid="uid://cvto7deo7w0hl" path="res://scenes/particles/snow.tscn" id="4_rtp6k"]
+[ext_resource type="PackedScene" uid="uid://bjt15iuday65v" path="res://scenes/entities/npc/static_npc.tscn" id="7_d0ssp"]
+[ext_resource type="PackedScene" uid="uid://dqkcgsaa4se1v" path="res://scenes/objects/world/car.tscn" id="8_p77db"]
 
 [sub_resource type="Gradient" id="Gradient_rtp6k"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -132,3 +134,16 @@ amount = 512
 [node name="snow9" parent="particles" unique_id=228297440 instance=ExtResource("4_rtp6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.077972, 22.358961, 56.886383)
 amount = 512
+
+[node name="npcs" type="Node3D" parent="." unique_id=990491505]
+
+[node name="static_npc" parent="npcs" unique_id=542692205 instance=ExtResource("7_d0ssp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9722996, 15.875902, 47.39045)
+
+[node name="car" parent="." unique_id=116658170 instance=ExtResource("8_p77db")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.392604, 16.029413, 51.167995)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1180816747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4241309, 23.994482, 45.232216)
+omni_range = 17.929417
+omni_attenuation = 0.71

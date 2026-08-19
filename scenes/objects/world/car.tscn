@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dqkcgsaa4se1v"]
+
+[ext_resource type="ArrayMesh" uid="uid://hp7ux1qneb8j" path="res://assets/models/objects/car/Car8.obj" id="1_b872p"]
+[ext_resource type="Script" uid="uid://cwdfbfvweskxp" path="res://scenes/objects/world/car.gd" id="1_o1ksb"]
+[ext_resource type="Texture2D" uid="uid://c3wwjn4kl65n3" path="res://assets/models/objects/car/Car8_mail.png" id="2_o1ksb"]
+[ext_resource type="Script" uid="uid://dj1tk7mo3fyg3" path="res://scripts/components/interactable.gd" id="4_mnn56"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnn56"]
+albedo_texture = ExtResource("2_o1ksb")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b872p"]
+size = Vector3(2.291748, 2.209076, 4.305435)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_haxwh"]
+size = Vector3(3.168025, 2.7392578, 0.84417725)
+
+[node name="car" type="VehicleBody3D" unique_id=116658170]
+mass = 120.0
+script = ExtResource("1_o1ksb")
+
+[node name="model_container" type="Node3D" parent="." unique_id=1658843732]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 0.017303646, 0, 0.12444216)
+
+[node name="Car8" type="MeshInstance3D" parent="model_container" unique_id=2110902565]
+transform = Transform3D(0.855, 0, 0, 0, 0.715, 0, 0, 0, 0.637, 0, 0, 0)
+mesh = ExtResource("1_b872p")
+surface_material_override/0 = SubResource("StandardMaterial3D_mnn56")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=936958858]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 0.034717977, 1.2670746, 0.3900384)
+shape = SubResource("BoxShape3D_b872p")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="." unique_id=1128223527]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, -0.95241666, 0.36718535, -1.1111891)
+use_as_steering = true
+wheel_radius = 0.375
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="." unique_id=1546811184]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 0.92617273, 0.36718535, -1.1488672)
+use_as_steering = true
+wheel_radius = 0.375
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="." unique_id=657497282]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 0.97638065, 0.36718535, 1.3544419)
+use_as_traction = true
+wheel_radius = 0.375
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="." unique_id=678877078]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, -0.90262485, 0.36718535, 1.3921283)
+use_as_traction = true
+wheel_radius = 0.375
+
+[node name="enter_interact" type="Area3D" parent="." unique_id=936798076]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 0.017303646, 0, 0.12444216)
+script = ExtResource("4_mnn56")
+metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enter_interact" unique_id=547335894]
+transform = Transform3D(0.9999979, 0, -3.9115548e-08, 0, 1, 0, 3.9115548e-08, 0, 0.9999979, 0.014465841, 0.8696289, 0.4746421)
+shape = SubResource("BoxShape3D_haxwh")
+
+[node name="leave_marker" type="Marker3D" parent="." unique_id=950815526]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 1.6491799, 0, -0.45846787)
+
+[node name="player_seat" type="Marker3D" parent="." unique_id=960697642]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 0.01497823, 0.4515192, 0.0084972605)
+
+[node name="camera_pivot" type="Marker3D" parent="." unique_id=344599309]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0.37644792, 3.8, 3.6)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1522963818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8559451, 0.7191367, -1.7704298)
+spot_range = 25.0
+spot_attenuation = -0.1
+spot_angle = 50.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=317676365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8941648, 0.7191367, -1.7704298)
+spot_range = 25.0
+spot_attenuation = 0.1
+spot_angle = 50.0
+
+[connection signal="interacted" from="enter_interact" to="." method="interacted"]

@@ -2,6 +2,7 @@ class_name Player extends CharacterBody3D
 
 @onready var model_container: Node3D = $model_container
 @onready var interaction_area: Area3D = $interaction_area
+@onready var collision: CollisionShape3D = $CollisionShape3D
 
 @onready var camera_anchor: Node3D = $camera_anchor
 @onready var camera: Camera3D = $camera_anchor/Camera3D
@@ -14,12 +15,12 @@ var target_rotation: float = 0.0
 var can_move: bool = true
 var can_rotate: bool = false
 var is_outside: bool = true
+var is_in_car: bool = false
 
 var look_target: Vector3
 var movement_tw: Tween 
 
 var mails: Array = []
-
 func _ready() -> void:
 	EventBus.player_can_move.connect(
 		func(outside: bool = false) -> void: 
@@ -47,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	if can_move:
 		if direction:
 			if is_outside:
-				speed = DEFAULT_SPEED * 4
+				speed = DEFAULT_SPEED * 2.5
 			else:
 				speed = DEFAULT_SPEED
 			
@@ -83,6 +84,8 @@ func _physics_process(delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		interact()
+	
+	if is_in_car: return
 	
 	if Input.is_action_just_pressed("ui_left"):
 		target_rotation += deg_to_rad(60)
