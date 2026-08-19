@@ -23,14 +23,14 @@ func _process(_delta: float) -> void:
 			close_route_map()
 		else:
 			if get_tree().paused:
-				if GameManager.settings_screen.visible:
-					GameManager.pause_screen.settings_screen.exit_pressed()
+				if pause_screen.settings_screen.visible:
+					pause_screen.settings_screen.exit_pressed()
 				else:
 					get_tree().paused = false
-					GameManager.pause_screen.close()
+					pause_screen.close()
 			else:
 				get_tree().paused = true
-				GameManager.pause_screen.open()
+				pause_screen.open()
 
 func open_route_map() -> void:
 	route_map.animation.play("open")

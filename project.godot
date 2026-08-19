@@ -16,6 +16,10 @@ run/main_scene="uid://b1mkou3w6vrst"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dpix0uq5yrnjs"
+
 [autoload]
 
 Util="*uid://cqj71im1h4dup"
@@ -25,6 +29,7 @@ DialogueManager="*uid://dip4jyj2ygdqq"
 Dialogues="*uid://cna0lxjpjh1v3"
 EventBus="*uid://dbpu4dksu4d8n"
 Registry="*uid://cjfdq8rmpyepj"
+SettingsManager="*uid://bthlvc6pe0eru"
 
 [debug]
 

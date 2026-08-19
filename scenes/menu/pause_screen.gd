@@ -16,6 +16,7 @@ func _on_exit_pressed() -> void:
 	SceneChanger.change_scene("title_screen")
 
 func open() -> void:
+	GameManager.ui.shader.hide()
 	show()
 	animation.play("open")
 
@@ -23,6 +24,7 @@ func close() -> void:
 	animation.play_backwards("open")
 	await animation.animation_finished
 	hide()
+	GameManager.ui.shader.show()
 	get_tree().paused = false
 
 func mouse_entered(source: Button) -> void:

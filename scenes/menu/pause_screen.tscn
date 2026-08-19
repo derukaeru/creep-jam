@@ -146,6 +146,7 @@ mouse_filter = 2
 texture = ExtResource("2_04k7x")
 
 [node name="settings_screen" parent="." unique_id=1934551461 instance=ExtResource("3_ruv5c")]
+visible = false
 layout_mode = 1
 
 [node name="shader" type="ColorRect" parent="." unique_id=81044591]
