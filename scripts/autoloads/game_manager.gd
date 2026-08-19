@@ -20,7 +20,8 @@ func _process(_d: float) -> void:
 
 func change_map(id: String) -> void:
 	if Registry.MAPS.has(id):
-		EventBus.go_to_map.emit(id)
+		if id == "main_outside":
+			EventBus.go_to_map.emit(id, true)
 
 func reset() -> void:
 	changing_rooms = false

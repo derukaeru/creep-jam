@@ -1,6 +1,9 @@
 class_name TitleScreen extends Control
 @onready var settings_screen: SettingsScreen = $settings_screen
 
+func _ready() -> void:
+	GameManager.ui.hide()
+
 func start_pressed() -> void:
 	SceneChanger.change_scene("main")
 

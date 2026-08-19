@@ -4,6 +4,7 @@
 [ext_resource type="Terrain3DAssets" uid="uid://eshmwqqujqjh" path="res://terrain/main_outside_mesh_assets.tres" id="2_3npgm"]
 [ext_resource type="PackedScene" uid="uid://idtsuiyxp6q6" path="res://scenes/objects/world/lamppost.tscn" id="3_3npgm"]
 [ext_resource type="PackedScene" uid="uid://dpu23nyv1axev" path="res://scenes/objects/world/buildings/building_0.tscn" id="4_3npgm"]
+[ext_resource type="PackedScene" uid="uid://dh112vgwaa8ad" path="res://scenes/objects/world/trees/tree_1.tscn" id="4_bwrwn"]
 [ext_resource type="PackedScene" uid="uid://cvto7deo7w0hl" path="res://scenes/particles/snow.tscn" id="4_rtp6k"]
 
 [sub_resource type="Gradient" id="Gradient_rtp6k"]
@@ -63,19 +64,71 @@ metadata/_edit_lock_ = true
 [node name="lamppost" parent="objects" unique_id=77967068 instance=ExtResource("3_3npgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.147944, 15.532106, 52.20925)
 
+[node name="trees" type="Node3D" parent="objects" unique_id=1503931624]
+
+[node name="tree_1" parent="objects/trees" unique_id=261558623 instance=ExtResource("4_bwrwn")]
+transform = Transform3D(30, 0, 0, 0, -1.3113416e-06, 30, 0, -30, -1.3113416e-06, 1.4164538, 16.104473, 52.384377)
+
+[node name="tree_2" parent="objects/trees" unique_id=2135400121 instance=ExtResource("4_bwrwn")]
+transform = Transform3D(30, 0, 0, 0, -1.3113416e-06, 30, 0, -30, -1.3113416e-06, 15.93116, 16.104473, 34.78269)
+
+[node name="tree_3" parent="objects/trees" unique_id=1039748215 instance=ExtResource("4_bwrwn")]
+transform = Transform3D(28.17894, -10.29307, -4.4992439e-07, 0, -1.3113415e-06, 29.999998, -10.29307, -28.17894, -1.2317405e-06, 17.494177, 16.104473, 33.34999)
+
+[node name="tree_4" parent="objects/trees" unique_id=828416384 instance=ExtResource("4_bwrwn")]
+transform = Transform3D(28.17894, -10.29307, -4.4992439e-07, 0, -1.3113415e-06, 29.999998, -10.29307, -28.17894, -1.2317405e-06, 17.494177, 16.104473, 36.10451)
+
+[node name="tree_5" parent="objects/trees" unique_id=1942962180 instance=ExtResource("4_bwrwn")]
+transform = Transform3D(29.267418, -6.5892553, -2.880255e-07, 0, -1.3113415e-06, 29.999998, -6.5892553, -29.267418, -1.2793192e-06, 16.346022, 16.104473, 36.10451)
+
 [node name="spawns" type="Node3D" parent="." unique_id=1899116206]
 
 [node name="first_room" type="Marker3D" parent="spawns" unique_id=1943223690]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4282055, 16.945253, 54.423447)
 
-[node name="snow" parent="." unique_id=1535659430 instance=ExtResource("4_rtp6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4796939, 0)
-visible = false
-
 [node name="buildings" type="Node3D" parent="." unique_id=1794208895]
 
 [node name="building_0" parent="buildings" unique_id=717859483 instance=ExtResource("4_3npgm")]
-transform = Transform3D(0.84042466, 0, -0.5419283, 0, 1, 0, 0.5419283, 0, 0.84042466, 13.818508, 16.071095, 44.310513)
+transform = Transform3D(0.7711802, 0, -0.63661677, 0, 1, 0, 0.63661677, 0, 0.7711802, 12.027649, 16.071095, 26.923557)
 
 [node name="main_camera_pivot_1" type="Marker3D" parent="." unique_id=422682092]
-transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 3.7, 3.6)
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 3.8, 3.6)
+
+[node name="particles" type="Node3D" parent="." unique_id=759172373]
+visible = false
+
+[node name="snow" parent="particles" unique_id=1535659430 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14139, 22.358961, 50.754765)
+amount = 512
+
+[node name="snow2" parent="particles" unique_id=615258759 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.376186, 22.358961, 50.754765)
+amount = 512
+
+[node name="snow3" parent="particles" unique_id=2052660646 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.376186, 22.358961, 76.858505)
+amount = 512
+
+[node name="snow4" parent="particles" unique_id=1897188706 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.206989, 22.358961, 76.858505)
+amount = 512
+
+[node name="snow5" parent="particles" unique_id=897327856 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.114754, 22.358961, 76.858505)
+amount = 512
+
+[node name="snow6" parent="particles" unique_id=790278991 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.114754, 22.358961, 99.043076)
+amount = 512
+
+[node name="snow7" parent="particles" unique_id=1521202546 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.408939, 22.358961, 99.043076)
+amount = 512
+
+[node name="snow8" parent="particles" unique_id=1636663123 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.91541, 22.358961, 99.043076)
+amount = 512
+
+[node name="snow9" parent="particles" unique_id=228297440 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.077972, 22.358961, 56.886383)
+amount = 512

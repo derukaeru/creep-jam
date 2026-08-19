@@ -2,23 +2,49 @@
 
 [ext_resource type="Script" uid="uid://ddvv4livyubl5" path="res://scenes/world/post_office.gd" id="1_vtv0a"]
 [ext_resource type="Script" uid="uid://cw8027kkdy1c7" path="res://scripts/components/room_transition.gd" id="2_bh5ah"]
+[ext_resource type="ArrayMesh" uid="uid://cfvbaq340vtia" path="res://assets/models/room/post_office.obj" id="3_o063y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8q0tj"]
-size = Vector3(16, 0.02, 16)
+size = Vector3(8, 0.02, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajb67"]
+size = Vector3(0.1, 3.5, 4.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ysjnf"]
+size = Vector3(5, 3.5, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o063y"]
-size = Vector3(1, 8, 1)
+size = Vector3(1, 2.4672852, 0.6010742)
 
 [node name="post_office" type="Node3D" unique_id=1248722810]
 script = ExtResource("1_vtv0a")
+
+[node name="PostOffice" type="MeshInstance3D" parent="." unique_id=116808368]
+mesh = ExtResource("3_o063y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=52435376]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1401506155]
 shape = SubResource("BoxShape3D_8q0tj")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1796568984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.511987, 1.589478, 0)
+shape = SubResource("BoxShape3D_ajb67")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=160738223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5465868, 1.589478, 0)
+shape = SubResource("BoxShape3D_ajb67")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=276582594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019999504, 1.589478, -2.2815545)
+shape = SubResource("BoxShape3D_ysjnf")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1763324492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019999504, 1.589478, 2.2009628)
+shape = SubResource("BoxShape3D_ysjnf")
+
 [node name="RoomTransition" type="Area3D" parent="." unique_id=736035623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9519534, 7.6168413)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54670835, 2.0112665)
 script = ExtResource("2_bh5ah")
 transition_to = "main_outside"
 interact_text = "leave"
@@ -28,7 +54,7 @@ metadata/_custom_type_script = "uid://cw8027kkdy1c7"
 shape = SubResource("BoxShape3D_o063y")
 
 [node name="camera_pivot" type="Marker3D" parent="." unique_id=2050848177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.708869, 9.324944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.708869, 4.543287)
 
 [node name="entrance" type="Marker3D" parent="." unique_id=1581289131]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.6955895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2853656)

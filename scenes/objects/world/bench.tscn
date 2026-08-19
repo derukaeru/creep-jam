@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://doxxfqrwx346t"]
+
+[ext_resource type="Script" uid="uid://dj1tk7mo3fyg3" path="res://scripts/components/interactable.gd" id="1_crr55"]
+[ext_resource type="Script" uid="uid://bnfw4r3lks7t3" path="res://scenes/objects/world/bench.gd" id="1_xm7qw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xm7qw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yskb"]
+
+[node name="bench" type="StaticBody3D" unique_id=1770662262]
+script = ExtResource("1_xm7qw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2030125765]
+shape = SubResource("BoxShape3D_xm7qw")
+
+[node name="sit_interact" type="Area3D" parent="." unique_id=1309241499]
+script = ExtResource("1_crr55")
+metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sit_interact" unique_id=1678720860]
+shape = SubResource("BoxShape3D_1yskb")
+
+[connection signal="interacted" from="sit_interact" to="." method="sit_interact"]

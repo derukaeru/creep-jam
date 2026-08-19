@@ -1,5 +1,7 @@
 extends Node
 
 var dialogue: Dictionary = {
-	"name": ["line_1", "line_2"]
+	"name": {
+		"paragraph_id": ["line_1", "line_2"]
+	}
 }

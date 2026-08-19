@@ -18,9 +18,10 @@ func _ready() -> void:
 	
 	EventBus.add_entities.connect(add_entities)
 	
+	GameManager.ui.show()
 	go_to_map("room")
 
-func go_to_map(id: String) -> void:
+func go_to_map(id: String, is_outside: bool = false) -> void:
 	EventBus.player_not_move.emit()
 	GameManager.changing_rooms = true
 	
@@ -56,7 +57,7 @@ func go_to_map(id: String) -> void:
 	await GameManager.ui.room_transition_anim.animation_finished
 	
 	GameManager.ui.room_transition.hide()
-	EventBus.player_can_move.emit()
+	EventBus.player_can_move.emit(is_outside)
 	GameManager.changing_rooms = false
 
 @warning_ignore("unused_parameter")

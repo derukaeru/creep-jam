@@ -7,11 +7,13 @@ class_name Player extends CharacterBody3D
 @onready var camera: Camera3D = $camera_anchor/Camera3D
 
 const gravity: float = 9.8
-const SPEED: float = 1.5
+const DEFAULT_SPEED: float = 1.5
+var speed: float = DEFAULT_SPEED
 var target_rotation: float = 0.0
 
 var can_move: bool = true
 var can_rotate: bool = false
+var is_outside: bool = true
 
 var look_target: Vector3
 var movement_tw: Tween 
@@ -20,9 +22,10 @@ var mails: Array = []
 
 func _ready() -> void:
 	EventBus.player_can_move.connect(
-		func() -> void: 
+		func(outside: bool = false) -> void: 
 			can_move = true
 			velocity = Vector3.ZERO
+			is_outside = outside
 	)
 	EventBus.player_not_move.connect(
 		func() -> void: 
@@ -43,8 +46,13 @@ func _physics_process(delta: float) -> void:
 	
 	if can_move:
 		if direction:
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
+			if is_outside:
+				speed = DEFAULT_SPEED * 4
+			else:
+				speed = DEFAULT_SPEED
+			
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
 			
 			if (movement_tw and not movement_tw.is_valid()) or not movement_tw:
 				movement_tw = get_tree().create_tween()
@@ -63,8 +71,8 @@ func _physics_process(delta: float) -> void:
 				
 				look_target = Vector3(velocity.x, 0, velocity.z)
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, speed)
+			velocity.z = move_toward(velocity.z, 0, speed)
 	
 	model_container.rotation.y = lerp_angle(model_container.rotation.y, atan2(-look_target.x, -look_target.z), .23)
 	if abs(target_rotation - camera_anchor.rotation.y) > 0.1:
@@ -76,11 +84,10 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		interact()
 	
-	if can_rotate:
-		if Input.is_action_just_pressed("ui_left"):
-			target_rotation -= deg_to_rad(60)
-		if Input.is_action_just_pressed("ui_right"):
-			target_rotation += deg_to_rad(60)
+	if Input.is_action_just_pressed("ui_left"):
+		target_rotation += deg_to_rad(60)
+	if Input.is_action_just_pressed("ui_right"):
+		target_rotation -= deg_to_rad(60)
 
 func interact() -> void:
 	var interactions = interaction_area.get_overlapping_areas().filter(
