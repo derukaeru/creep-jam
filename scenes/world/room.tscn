@@ -54,7 +54,7 @@ omni_attenuation = -0.824
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6820116, 1.2451503)
 script = ExtResource("2_7lhff")
 transition_to = "main_outside"
-interact_text = "exit"
+interact_text = "leave"
 metadata/_custom_type_script = "uid://cw8027kkdy1c7"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="outside" unique_id=665876227]

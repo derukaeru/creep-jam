@@ -54,7 +54,12 @@ metadata/_custom_type_script = "uid://cw8027kkdy1c7"
 shape = SubResource("BoxShape3D_o063y")
 
 [node name="camera_pivot" type="Marker3D" parent="." unique_id=2050848177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.708869, 4.543287)
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 3.708869, 4.543287)
 
 [node name="entrance" type="Marker3D" parent="." unique_id=1581289131]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2853656)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1816141784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0461051, 0)
+omni_range = 6.9504123
+omni_attenuation = 0.535

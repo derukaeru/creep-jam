@@ -13,7 +13,7 @@ texture_filter = 0
 size = Vector3(2.291748, 2.209076, 4.305435)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_haxwh"]
-size = Vector3(3.168025, 2.7392578, 0.84417725)
+size = Vector3(0.60891485, 1.9650879, 0.84417725)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haxwh"]
 emission_enabled = true
@@ -30,6 +30,9 @@ emission = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_qf6vc"]
 material = SubResource("StandardMaterial3D_f6idi")
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f6idi"]
+size = Vector3(1.8374023, 1.8173828, 2.033142)
 
 [node name="car" type="VehicleBody3D" unique_id=116658170]
 mass = 120.0
@@ -67,13 +70,24 @@ transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -
 use_as_traction = true
 wheel_radius = 0.375
 
-[node name="enter_interact" type="Area3D" parent="." unique_id=936798076]
-transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 0.017303646, 0, 0.12444216)
+[node name="enter_interact_right" type="Area3D" parent="." unique_id=936798076]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, 1.3497224, 1.4737377, -0.43561316)
 script = ExtResource("4_mnn56")
+interact_text = "get in"
 metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enter_interact" unique_id=547335894]
-transform = Transform3D(0.9999979, 0, -3.9115548e-08, 0, 1, 0, 3.9115548e-08, 0, 0.9999979, 0.014465841, 0.8696289, 0.4746421)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enter_interact_right" unique_id=547335894]
+transform = Transform3D(0.9999925, 0, -1.4342368e-07, 0, 1, 0, 1.4342368e-07, 0, 0.9999925, 0.11029887, -0.12544107, 0.026367277)
+shape = SubResource("BoxShape3D_haxwh")
+
+[node name="enter_interact_left" type="Area3D" parent="." unique_id=460950492]
+transform = Transform3D(-0.99979895, 0, -0.020052582, 0, 1, 0, 0.020052582, 0, -0.99979895, -1.4805162, 1.4657526, -0.2744134)
+script = ExtResource("4_mnn56")
+interact_text = "get in"
+metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enter_interact_left" unique_id=1722026360]
+transform = Transform3D(0.9999976, 0, -4.4703484e-08, 0, 1, 0, 4.4703484e-08, 0, 0.9999976, -0.20906687, -0.17885852, 0.15968356)
 shape = SubResource("BoxShape3D_haxwh")
 
 [node name="leave_marker" type="Marker3D" parent="." unique_id=950815526]
@@ -87,14 +101,14 @@ transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81
 
 [node name="headlight_right" type="SpotLight3D" parent="." unique_id=1522963818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8559451, 0.7191367, -1.7704298)
-spot_range = 25.0
-spot_attenuation = -0.1
+spot_range = 32.0
+spot_attenuation = -0.05
 spot_angle = 50.0
 
 [node name="headlight_left" type="SpotLight3D" parent="." unique_id=317676365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8941648, 0.7191367, -1.7704298)
-spot_range = 25.0
-spot_attenuation = 0.1
+spot_range = 32.0
+spot_attenuation = -0.05
 spot_angle = 50.0
 
 [node name="headlight_mesh" type="MeshInstance3D" parent="." unique_id=1717797757]
@@ -113,4 +127,14 @@ mesh = SubResource("BoxMesh_qf6vc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0416789, 0.5719265, 2.3309398)
 mesh = SubResource("BoxMesh_qf6vc")
 
-[connection signal="interacted" from="enter_interact" to="." method="interacted"]
+[node name="leave_car" type="Area3D" parent="." unique_id=1827094511]
+script = ExtResource("4_mnn56")
+metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="leave_car" unique_id=1738770537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14624023, 1.2756948, 0.13619995)
+shape = SubResource("BoxShape3D_f6idi")
+
+[connection signal="interacted" from="enter_interact_right" to="." method="interacted"]
+[connection signal="interacted" from="enter_interact_left" to="." method="interacted"]
+[connection signal="interacted" from="leave_car" to="." method="exit"]

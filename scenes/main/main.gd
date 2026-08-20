@@ -19,7 +19,7 @@ func _ready() -> void:
 	EventBus.add_entities.connect(add_entities)
 	
 	GameManager.ui.show()
-	go_to_map("room")
+	go_to_map(map_id)
 
 func go_to_map(id: String, is_outside: bool = false) -> void:
 	EventBus.player_not_move.emit()
@@ -70,7 +70,6 @@ func set_camera(camera_marker: Marker3D, pivot: Vector3 = Vector3.ZERO, wander_f
 	var player: Player = Util.get_player()
 	if not player: return
 	
-	# player.can_rotate = !wander_free
 	player.camera_anchor.top_level = wander_free
 	player.camera_anchor.global_position = Vector3.ZERO
 	player.camera_anchor.position = pivot

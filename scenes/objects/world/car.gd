@@ -7,6 +7,11 @@ class_name Car extends VehicleBody3D
 @onready var brakelight_mesh_left: MeshInstance3D = $brakelight_mesh_left
 @onready var brakelight_mesh_right: MeshInstance3D = $brakelight_mesh_right
 
+@onready var enter_interact_left: InteractableComponent = $enter_interact_left
+@onready var enter_interact_right: InteractableComponent = $enter_interact_right
+
+@onready var leave_car: InteractableComponent = $leave_car
+
 var brakelight_left_mat: Material
 var brakelight_right_mat: Material
 
@@ -72,36 +77,58 @@ func interacted() -> void:
 	var player: Player = Util.get_player()
 	if not player: return
 	
-	if player_in: 
-		player.show()
-		player.can_move = true
-		player.is_in_car = false
-		player.global_position = global_position + Vector3(2.0, 1.0, 0.0)
-		player.collision.set_deferred("disabled", false)
-		player.camera.fov = 100.0
-		
-		player_in = false
-		is_leaving = true
-		
-		brake = 1.0
-		engine_force = 0.0
-		steering = 0.0
-	else:
-		player.hide()
-		player.can_move = false
-		player.is_in_car = true
-		player.target_rotation = 0.0
-		player.collision.set_deferred("disabled", true)
-		player.camera.fov = 80.0
-		
-		player_in = true
-		freeze = false
-		is_leaving = false
-		
-		steering = 0.0
-		brake = 0.0
-		engine_force = 0.0
+	if player_in: return
+	player.hide()
+	player.can_move = false
+	player.is_in_car = true
 	
+	player.target_rotation = 0.0
+	player.collision.set_deferred("disabled", true)
+	player.camera.fov = 110.0
+	
+	player_in = true
+	freeze = false
+	is_leaving = false
+	
+	steering = 0.0
+	brake = 0.0
+	engine_force = 0.0
+		
+	enter_interact_left.active = false
+	enter_interact_right.active = false
+	leave_car.active = true
+	
+	tween_bob()
+
+func exit() -> void:
+	var player: Player = Util.get_player()
+	if not player: return
+	if not player_in: return
+	
+	# fix this bum ass fucking stupid car physics shit
+	player.global_position = to_global(Vector3(2.0, 0.5, 0.0))
+	
+	player.show()
+	player.can_move = true
+	player.is_in_car = false
+	
+	player.collision.set_deferred("disabled", false)
+	player.camera.fov = 80.0
+	
+	player_in = false
+	is_leaving = true
+	
+	brake = 1.0
+	engine_force = 0.0
+	steering = 0.0
+	
+	enter_interact_left.active = true
+	enter_interact_right.active = true
+	leave_car.active = false
+	
+	tween_bob()
+
+func tween_bob() -> void:
 	var tw: Tween = get_tree().create_tween()
 	tw.tween_property(model_container, "scale:x", 0.9, 0.1)
 	tw.parallel()
