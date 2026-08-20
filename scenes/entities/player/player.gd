@@ -86,12 +86,10 @@ func _input(_event: InputEvent) -> void:
 		interact()
 	
 	if is_in_car: return
-	
-	if can_rotate:
-		if Input.is_action_just_pressed("ui_left"):
-			target_rotation += deg_to_rad(60)
-		if Input.is_action_just_pressed("ui_right"):
-			target_rotation -= deg_to_rad(60)
+	if Input.is_action_just_pressed("ui_left"):
+		target_rotation += deg_to_rad(60)
+	if Input.is_action_just_pressed("ui_right"):
+		target_rotation -= deg_to_rad(60)
 
 func interact() -> void:
 	var interactions = interaction_area.get_overlapping_areas().filter(

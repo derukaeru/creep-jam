@@ -8,6 +8,8 @@ var max_steer: float = 0.4
 var speed: float = 620
 
 var player_in: bool = false
+var is_leaving: bool = false
+var deceleration: float = 15.0
 
 func _ready() -> void:
 	freeze = true
@@ -16,6 +18,14 @@ func _ready() -> void:
 	center_of_mass = Vector3(0.0, -0.7, 0.0)
 
 func _physics_process(delta: float) -> void:
+	if is_leaving:
+		linear_velocity = linear_velocity.move_toward(Vector3.ZERO, deceleration * delta)
+		angular_velocity = angular_velocity.move_toward(Vector3.ZERO, deceleration * delta)
+		
+		if linear_velocity.length() < 0.05 and angular_velocity.length() < 0.05:
+			is_leaving = false
+			freeze = true
+	
 	if not player_in: return
 	
 	var player: Player = Util.get_player()
@@ -41,35 +51,38 @@ func interacted() -> void:
 	if player_in: 
 		player.show()
 		player.can_move = true
-		player.global_position = global_position + Vector3(2.0, 0.0, 0.0)
+		player.is_in_car = false
+		player.global_position = global_position + Vector3(2.0, 1.0, 0.0)
 		player.collision.set_deferred("disabled", false)
 		player.camera.fov = 100.0
 		
 		player_in = false
-		freeze = true
+		is_leaving = true
 		
-		brake = 0.0
+		brake = 1.0
 		engine_force = 0.0
 		steering = 0.0
 	else:
 		player.hide()
 		player.can_move = false
+		player.is_in_car = true
 		player.target_rotation = 0.0
 		player.collision.set_deferred("disabled", true)
 		player.camera.fov = 80.0
 		
 		player_in = true
 		freeze = false
+		is_leaving = false
 		
 		steering = 0.0
 		brake = 0.0
 		engine_force = 0.0
 	
 	var tw: Tween = get_tree().create_tween()
-	tw.tween_property(model_container, "scale:x", 0.9, 0.05)
+	tw.tween_property(model_container, "scale:x", 0.9, 0.1)
 	tw.parallel()
-	tw.tween_property(model_container, "scale:y", 1.1, 0.05)
+	tw.tween_property(model_container, "scale:y", 1.1, 0.1)
 	
-	tw.tween_property(model_container, "scale:x", 1.0, 0.05)
+	tw.tween_property(model_container, "scale:x", 1.0, 0.1)
 	tw.parallel()
-	tw.tween_property(model_container, "scale:y", 1.0, 0.05)
+	tw.tween_property(model_container, "scale:y", 1.0, 0.1)
