@@ -2,15 +2,59 @@
 
 [ext_resource type="Script" uid="uid://sjxpo830h118" path="res://scenes/objects/interact_bubble/interact_bubble.gd" id="1_ue4fe"]
 
+[sub_resource type="Animation" id="Animation_ue4fe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cinv1"]
+resource_name = "bob"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.045, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qj768"]
+_data = {
+&"RESET": SubResource("Animation_ue4fe"),
+&"bob": SubResource("Animation_cinv1")
+}
+
 [node name="interact_bubble" type="Node3D" unique_id=671375717]
 script = ExtResource("1_ue4fe")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=440234068]
-pixel_size = 0.002
+pixel_size = 0.0022
 billboard = 1
-shaded = true
+no_depth_test = true
 fixed_size = true
 texture_filter = 0
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
+render_priority = 10
+outline_render_priority = 0
 text = "interact"
 outline_size = 0
+width = 400.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=826604724]
+libraries/ = SubResource("AnimationLibrary_qj768")
+autoplay = &"bob"

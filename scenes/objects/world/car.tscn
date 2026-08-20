@@ -15,6 +15,22 @@ size = Vector3(2.291748, 2.209076, 4.305435)
 [sub_resource type="BoxShape3D" id="BoxShape3D_haxwh"]
 size = Vector3(3.168025, 2.7392578, 0.84417725)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_haxwh"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f6idi"]
+material = SubResource("StandardMaterial3D_haxwh")
+size = Vector3(0.2, 0.1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6idi"]
+albedo_color = Color(0.53996855, 0, 0.0009808566, 1)
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qf6vc"]
+material = SubResource("StandardMaterial3D_f6idi")
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="car" type="VehicleBody3D" unique_id=116658170]
 mass = 120.0
 script = ExtResource("1_o1ksb")
@@ -80,5 +96,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8941648, 0.7191367, -1.770
 spot_range = 25.0
 spot_attenuation = 0.1
 spot_angle = 50.0
+
+[node name="headlight_mesh" type="MeshInstance3D" parent="." unique_id=1717797757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.885236, 0.6881831, -1.6940219)
+mesh = SubResource("BoxMesh_f6idi")
+
+[node name="headlight_mesh2" type="MeshInstance3D" parent="." unique_id=33516927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.866488, 0.6881831, -1.6940219)
+mesh = SubResource("BoxMesh_f6idi")
+
+[node name="brakelight_mesh_left" type="MeshInstance3D" parent="." unique_id=886109183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9257591, 0.5719265, 2.3705866)
+mesh = SubResource("BoxMesh_qf6vc")
+
+[node name="brakelight_mesh_right" type="MeshInstance3D" parent="." unique_id=293785836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0416789, 0.5719265, 2.3309398)
+mesh = SubResource("BoxMesh_qf6vc")
 
 [connection signal="interacted" from="enter_interact" to="." method="interacted"]

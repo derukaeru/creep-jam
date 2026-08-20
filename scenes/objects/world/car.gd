@@ -4,18 +4,30 @@ class_name Car extends VehicleBody3D
 @onready var leave_marker: Marker3D = $leave_marker
 @onready var player_seat: Marker3D = $player_seat
 
+@onready var brakelight_mesh_left: MeshInstance3D = $brakelight_mesh_left
+@onready var brakelight_mesh_right: MeshInstance3D = $brakelight_mesh_right
+
+var brakelight_left_mat: Material
+var brakelight_right_mat: Material
+
 var max_steer: float = 0.4
 var speed: float = 620
 
 var player_in: bool = false
 var is_leaving: bool = false
+var is_braking: bool = false
 var deceleration: float = 15.0
+
+var target_fov: float = 80.0
 
 func _ready() -> void:
 	freeze = true
 	freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
 	center_of_mass = Vector3(0.0, -0.7, 0.0)
+	
+	brakelight_left_mat = brakelight_mesh_left.get_active_material(0)
+	brakelight_right_mat = brakelight_mesh_right.get_active_material(0)
 
 func _physics_process(delta: float) -> void:
 	if is_leaving:
@@ -34,15 +46,27 @@ func _physics_process(delta: float) -> void:
 	player.global_position = player_seat.global_position
 	player.target_rotation = rotation.y
 	
-	steering = move_toward(steering, Input.get_axis("right", "left") * max_steer, delta * 10)
+	var steer_inp: float = Input.get_axis("right", "left")
+	steering = move_toward(steering, steer_inp * max_steer, delta * 10)
 	
 	var acceleration_inp: float = Input.get_axis("backward", "forward")
+	var forward_speed: float = -global_transform.basis.z.dot(linear_velocity)
+	
+	is_braking = (acceleration_inp < 0 and forward_speed > 0.01)
+	
 	if acceleration_inp == 0:
 		brake = 0.5
 		engine_force = 0.0
 	else:
 		brake = 0.0
 		engine_force = acceleration_inp * speed
+	
+	if is_braking:
+		brakelight_left_mat.emission_enabled = true
+		brakelight_right_mat.emission_enabled = true
+	else:
+		brakelight_left_mat.emission_enabled = false
+		brakelight_right_mat.emission_enabled = false
 
 func interacted() -> void:
 	var player: Player = Util.get_player()

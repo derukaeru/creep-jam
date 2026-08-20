@@ -4,16 +4,16 @@ class_name DialogBubble extends Node3D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
 signal dialogue_finished
+signal done
 
 var typing: bool = false
-var done: bool = false
 
 var dialogue_name: String = ""
 var dialogue_paragraph: String = ""
 var dialogue_line: int = 0
 
 var text: String = ""
-var letter_index: int = -1
+var letter_index: int = 0
 
 var typing_speed: float = 0.05
 var type_diff: float = 0.0
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	
 	if letter_index >= text.length():
 		typing = false
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		
 		animation.play("disappear")
 		await animation.animation_finished
@@ -50,8 +50,13 @@ func next_line() -> void:
 	dialogue_line += 1
 	typing = false
 	
-	if Dialogues.dialogue[dialogue_name][dialogue_paragraph].length() <= dialogue_line: return
-	text = DialogueManager.dialogues[dialogue_name][dialogue_paragraph][dialogue_line]
+	if Dialogues.dialogue[dialogue_name][dialogue_paragraph].size() <= dialogue_line: 
+		done.emit()
+		queue_free()
+		
+		return
+	
+	text = Dialogues.dialogues[dialogue_name][dialogue_paragraph][dialogue_line]
 	
 	label.text = ""
 	animation.play("RESET")

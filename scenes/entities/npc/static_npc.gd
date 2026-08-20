@@ -3,12 +3,18 @@ class_name StaticNPC extends StaticBody3D
 
 @export var NAME: String = ""
 @export var dialogue_paragraph: String = ""
-@export var dialogue_line: int = -1
+@export var dialogue_line: int = 0
 
 var dialogue_bubble: DialogBubble
 var talking: bool = false
 var talking_dialogue: bool = false
 
 func talk_interacted() -> void:
-	dialogue_bubble = DialogueManager.say(NAME, dialogue_paragraph, dialogue_line, position)
-	talking = true
+	if not talking:
+		dialogue_bubble = DialogueManager.say(NAME, dialogue_paragraph, dialogue_line, global_position)
+		add_child(dialogue_bubble)
+		dialogue_bubble.global_position = global_position + Vector3(0.0, 1.5, 0.0)
+		
+		dialogue_bubble.done.connect(func() -> void: talking = false)
+		
+		talking = true
