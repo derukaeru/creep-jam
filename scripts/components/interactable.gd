@@ -6,7 +6,6 @@ signal interacted
 @export var interact_text: String
 
 func _ready() -> void:
-	print(interact_text)
 	if interact_text.length() > 0:
 		interact_bubble = load(Registry.UID.interact_bubble).instantiate()
 		interact_bubble.text = interact_text
@@ -23,7 +22,6 @@ func _ready() -> void:
 				if body is Player:
 					interact_bubble.hide()
 		)
-		print("interactable" + interact_text)
 
 func interact() -> void:
 	if active:

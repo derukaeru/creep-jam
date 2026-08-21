@@ -2,36 +2,37 @@
 
 [ext_resource type="Script" uid="uid://bovdupd3aumxq" path="res://scenes/ui/route_map.gd" id="1_c53ps"]
 [ext_resource type="Texture2D" uid="uid://cfcw1tvlmqr7h" path="res://icon.svg" id="2_c17fk"]
+[ext_resource type="Texture2D" uid="uid://bc08e4dmn7f3t" path="res://assets/sprites/menu/menu_border.png" id="3_8b0ti"]
 
 [sub_resource type="Animation" id="Animation_c17fk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Vector2(1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_c53ps"]
 resource_name = "open"
-length = 0.3
+length = 0.24
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.23333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector2(1, 1e-05), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c17fk"]
@@ -41,13 +42,15 @@ _data = {
 }
 
 [node name="route_map" type="Control" unique_id=1380226578]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1e-05)
 script = ExtResource("1_c53ps")
 
 [node name="map_container" type="Control" parent="." unique_id=938895296]
@@ -65,12 +68,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -328.0
-offset_top = -294.0
-offset_right = 360.0
-offset_bottom = 336.0
+offset_left = -344.0
+offset_top = -315.0
+offset_right = 344.0
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(344, 315)
 texture = ExtResource("2_c17fk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2007528376]
@@ -78,8 +82,10 @@ libraries/ = SubResource("AnimationLibrary_c17fk")
 
 [node name="marker" type="TextureRect" parent="." unique_id=468702772]
 layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = -144.0
+offset_top = -136.0
+offset_right = -120.0
+offset_bottom = -112.0
 texture = ExtResource("2_c17fk")
 expand_mode = 1
 
@@ -98,3 +104,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_c17fk")
 expand_mode = 1
+
+[node name="border" type="TextureRect" parent="." unique_id=523359572]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_8b0ti")

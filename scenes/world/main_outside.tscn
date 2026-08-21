@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://cwk3320p0bjan" path="res://scenes/objects/world/buildings/building_8.tscn" id="12_o5dxn"]
 [ext_resource type="PackedScene" uid="uid://ds2bvnbrruvih" path="res://scenes/objects/world/buildings/building_9.tscn" id="13_0jxww"]
 [ext_resource type="PackedScene" uid="uid://dfpatff4d5okj" path="res://addons/godot_3d_cursor/scenes/3d_cursor.tscn" id="17_p1hoj"]
-[ext_resource type="Script" uid="uid://dt04kfvdc21nb" path="res://addons/godot_3d_cursor/scripts/3d_cursor.gd" id="18_c6n7n"]
 
 [sub_resource type="Gradient" id="Gradient_rtp6k"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -80,7 +79,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.147944, 15.532106, 39.0299
 transform = Transform3D(-0.711278, 0, 0.7029108, 0, 1, 0, -0.7029108, 0, -0.711278, 24.062435, 17.894817, 22.42534)
 
 [node name="lamppost6" parent="objects" unique_id=1654931706 instance=ExtResource("3_3npgm")]
-transform = Transform3D(0.39642686, 0, -0.9180664, 0, 1, 0, 0.9180664, 0, 0.39642686, 37.879826, 17.894817, 6.743614)
+transform = Transform3D(0.39642686, 0, -0.9180664, 0, 1, 0, 0.9180664, 0, 0.39642686, 34.68028, 17.894817, 9.136304)
+
+[node name="lamppost13" parent="objects" unique_id=654589475 instance=ExtResource("3_3npgm")]
+transform = Transform3D(0.39642686, 0, -0.9180664, 0, 1, 0, 0.9180664, 0, 0.39642686, 52.87232, 17.894817, 25.649248)
+
+[node name="lamppost14" parent="objects" unique_id=1076415733 instance=ExtResource("3_3npgm")]
+transform = Transform3D(-0.52489233, 0, 0.85116875, 0, 1, 0, -0.85116875, 0, -0.52489233, 37.471695, 17.894817, 34.316963)
+
+[node name="lamppost7" parent="objects" unique_id=1030865363 instance=ExtResource("3_3npgm")]
+transform = Transform3D(0.6485982, 0, -0.7611311, 0, 1, 0, 0.7611311, 0, 0.6485982, 24.561562, 17.894817, -3.0752134)
+
+[node name="lamppost11" parent="objects" unique_id=1472773878 instance=ExtResource("3_3npgm")]
+transform = Transform3D(0.75597924, 0, 0.65459555, 0, 1, 0, -0.65459555, 0, 0.75597924, 33.898888, 17.894817, -10.762815)
+
+[node name="lamppost12" parent="objects" unique_id=173445766 instance=ExtResource("3_3npgm")]
+transform = Transform3D(0.44022143, 0, 0.8978894, 0, 1, 0, -0.8978894, 0, 0.44022143, 45.261276, 17.894817, -23.906116)
+
+[node name="lamppost8" parent="objects" unique_id=541175821 instance=ExtResource("3_3npgm")]
+transform = Transform3D(0.6485982, 0, -0.7611311, 0, 1, 0, 0.7611311, 0, 0.6485982, 9.717673, 17.894817, -13.649836)
+
+[node name="lamppost9" parent="objects" unique_id=844160770 instance=ExtResource("3_3npgm")]
+transform = Transform3D(-0.010768622, 0, -0.99994206, 0, 1, 0, 0.99994206, 0, -0.010768622, -0.54266644, 17.894817, -33.327606)
+
+[node name="lamppost10" parent="objects" unique_id=586335014 instance=ExtResource("3_3npgm")]
+transform = Transform3D(-0.45136055, 0, -0.89234173, 0, 1, 0, 0.89234173, 0, -0.45136055, 1.0507421, 17.894817, -51.757404)
 
 [node name="lamppost3" parent="objects" unique_id=1276186183 instance=ExtResource("3_3npgm")]
 transform = Transform3D(-0.711278, 0, 0.7029108, 0, 1, 0, -0.7029108, 0, -0.711278, 5.791625, 17.894817, 5.841221)
@@ -121,14 +144,23 @@ transform = Transform3D(-0.7692098, 0, 0.6389961, 0, 1, 0, -0.6389961, 0, -0.769
 [node name="building_1" parent="buildings" unique_id=1136230907 instance=ExtResource("6_3ei2p")]
 transform = Transform3D(-0.74675417, 0, 0.6651001, 0, 1, 0, -0.6651001, 0, -0.74675417, 8.852604, 18.038898, 17.771843)
 
+[node name="building_2" parent="buildings" unique_id=1538187035 instance=ExtResource("6_3ei2p")]
+transform = Transform3D(-0.6757962, 0, -0.7370886, 0, 1, 0, 0.7370886, 0, -0.6757962, 8.4677515, 18.038898, -41.638992)
+
 [node name="building_3" parent="buildings" unique_id=211144529 instance=ExtResource("7_kpx70")]
 transform = Transform3D(-0.7372773, 0, 0.6755902, 0, 1, 0, -0.6755902, 0, -0.7372773, -5.780446, 17.930319, 4.6495714)
+
+[node name="building_11" parent="buildings" unique_id=1989230523 instance=ExtResource("7_kpx70")]
+transform = Transform3D(-0.7372773, 0, 0.6755902, 0, 1, 0, -0.6755902, 0, -0.7372773, 28.562065, 17.930319, -31.91028)
 
 [node name="building_4" parent="buildings" unique_id=593380084 instance=ExtResource("8_p1hoj")]
 transform = Transform3D(-0.53119165, 0, 0.84725165, 0, 1, 0, -0.84725165, 0, -0.53119165, -17.314842, 18.054419, -8.585035)
 
 [node name="building_5" parent="buildings" unique_id=777687376 instance=ExtResource("9_c6n7n")]
-transform = Transform3D(0.7639763, 0, -0.6452444, 0, 1, 0, 0.6452444, 0, 0.7639763, 48.05151, 17.763334, 6.556308)
+transform = Transform3D(0.6736191, 0, -0.73907876, 0, 1, 0, 0.73907876, 0, 0.6736191, 46.019253, 17.763334, 9.522809)
+
+[node name="building_10" parent="buildings" unique_id=2005069440 instance=ExtResource("9_c6n7n")]
+transform = Transform3D(0.6684818, 0, 0.7437286, 0, 1, 0, -0.7437286, 0, 0.6684818, 34.75558, 17.763334, -20.915379)
 
 [node name="building_6" parent="buildings" unique_id=186048470 instance=ExtResource("10_frbt3")]
 transform = Transform3D(0.7396663, 0, -0.67297375, 0, 1, 0, 0.67297375, 0, 0.7396663, 22.678143, 17.78441, -14.571556)
@@ -139,8 +171,14 @@ transform = Transform3D(0.74082804, 0, -0.67169476, 0, 1, 0, 0.67169476, 0, 0.74
 [node name="building_8" parent="buildings" unique_id=313181598 instance=ExtResource("12_o5dxn")]
 transform = Transform3D(-0.1965451, 0, 0.9804948, 0, 1, 0, -0.9804948, 0, -0.1965451, -23.902073, 17.985191, -27.827957)
 
+[node name="building_12" parent="buildings" unique_id=555183366 instance=ExtResource("12_o5dxn")]
+transform = Transform3D(-0.7487822, 0, 0.66281617, 0, 1, 0, -0.66281617, 0, -0.7487822, 20.999647, 17.985191, -40.307537)
+
 [node name="building_9" parent="buildings" unique_id=86978751 instance=ExtResource("13_0jxww")]
-transform = Transform3D(0.1497424, 0, 0.98872507, 0, 1, 0, -0.98872507, 0, 0.1497424, -24.170708, 17.869259, -42.05738)
+transform = Transform3D(0.578413, 0, 0.8157441, 0, 1, 0, -0.8157441, 0, 0.578413, -19.830517, 17.869259, -45.031906)
+
+[node name="building_13" parent="buildings" unique_id=1088615438 instance=ExtResource("13_0jxww")]
+transform = Transform3D(-0.713018, 0, -0.7011458, 0, 1, 0, 0.7011458, 0, -0.713018, 49.088573, 17.869259, -1.4408226)
 
 [node name="main_camera_pivot_1" type="Marker3D" parent="." unique_id=422682092]
 transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 3.8, 3.6)
@@ -196,9 +234,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4241309, 23.994482, 45.2322
 omni_range = 17.929417
 omni_attenuation = 0.71
 
-[node name="3DCursor" type="Marker3D" parent="." unique_id=1025296672 groups=["Plugin3DCursor"] instance=ExtResource("17_p1hoj")]
-gizmo_extents = 0.0
-script = ExtResource("18_c6n7n")
+[node name="3DCursor" parent="." unique_id=1025296672 instance=ExtResource("17_p1hoj")]
 metadata/cursor_id = 0
 metadata/size_scale = 1.0
 metadata/show_title_label = true

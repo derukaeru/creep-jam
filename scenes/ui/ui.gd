@@ -10,7 +10,7 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	if not GameManager.game_running: return
+	if not GameManager.game_running or get_tree().paused: return
 	
 	if Input.is_action_just_pressed("map"):
 		if not route_map.open and not GameManager.changing_rooms:
