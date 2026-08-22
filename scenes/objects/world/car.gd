@@ -96,17 +96,19 @@ func interacted() -> void:
 		
 	enter_interact_left.active = false
 	enter_interact_right.active = false
-	leave_car.active = true
 	
 	tween_bob()
-
+	
+	await get_tree().process_frame
+	leave_car.active = true
+	
 func exit() -> void:
 	var player: Player = Util.get_player()
 	if not player: return
 	if not player_in: return
 	
 	# fix this bum ass fucking stupid car physics shit
-	player.global_position = to_global(Vector3(2.0, 0.5, 0.0))
+	player.position = to_global(Vector3(2.0, 1.5, 0.0))
 	
 	player.show()
 	player.can_move = true

@@ -101,12 +101,14 @@ transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81
 
 [node name="headlight_right" type="SpotLight3D" parent="." unique_id=1522963818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8559451, 0.7191367, -1.7704298)
+distance_fade_enabled = true
 spot_range = 32.0
 spot_attenuation = -0.05
 spot_angle = 50.0
 
 [node name="headlight_left" type="SpotLight3D" parent="." unique_id=317676365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8941648, 0.7191367, -1.7704298)
+distance_fade_enabled = true
 spot_range = 32.0
 spot_attenuation = -0.05
 spot_angle = 50.0

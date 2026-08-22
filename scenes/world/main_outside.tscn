@@ -103,7 +103,7 @@ transform = Transform3D(0.6485982, 0, -0.7611311, 0, 1, 0, 0.7611311, 0, 0.64859
 transform = Transform3D(-0.010768622, 0, -0.99994206, 0, 1, 0, 0.99994206, 0, -0.010768622, -0.54266644, 17.894817, -33.327606)
 
 [node name="lamppost10" parent="objects" unique_id=586335014 instance=ExtResource("3_3npgm")]
-transform = Transform3D(-0.45136055, 0, -0.89234173, 0, 1, 0, 0.89234173, 0, -0.45136055, 1.0507421, 17.894817, -51.757404)
+transform = Transform3D(-0.83217686, 0, -0.55451035, 0, 1, 0, 0.55451035, 0, -0.83217686, 10.647948, 17.894817, -53.159435)
 
 [node name="lamppost3" parent="objects" unique_id=1276186183 instance=ExtResource("3_3npgm")]
 transform = Transform3D(-0.711278, 0, 0.7029108, 0, 1, 0, -0.7029108, 0, -0.711278, 5.791625, 17.894817, 5.841221)
@@ -186,31 +186,43 @@ transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81
 [node name="particles" type="Node3D" parent="." unique_id=759172373]
 
 [node name="snow" parent="particles" unique_id=1535659430 instance=ExtResource("4_rtp6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.389984, 23.72914, -31.141376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.06487, 23.72914, 26.45082)
 amount = 512
 
 [node name="snow2" parent="particles" unique_id=615258759 instance=ExtResource("4_rtp6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.127592, 23.72914, -31.141376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.024563, 23.72914, -35.957954)
 amount = 512
 
 [node name="snow3" parent="particles" unique_id=2052660646 instance=ExtResource("4_rtp6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.127592, 23.72914, -5.037636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2724819, 23.72914, -54.236473)
 amount = 512
 
 [node name="snow4" parent="particles" unique_id=1897188706 instance=ExtResource("4_rtp6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.455584, 23.72914, -5.037636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.660637, 23.72914, -18.415024)
 amount = 512
 
 [node name="snow5" parent="particles" unique_id=897327856 instance=ExtResource("4_rtp6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.36335, 23.72914, -5.037636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.427277, 23.72914, 57.46598)
+amount = 512
+
+[node name="snow10" parent="particles" unique_id=1763024232 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.205189, 23.72914, -66.98157)
+amount = 512
+
+[node name="snow11" parent="particles" unique_id=1430059428 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.76196, 23.72914, -64.04387)
+amount = 512
+
+[node name="snow12" parent="particles" unique_id=1094299422 instance=ExtResource("4_rtp6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.50282, 23.72914, -10.778166)
 amount = 512
 
 [node name="snow6" parent="particles" unique_id=790278991 instance=ExtResource("4_rtp6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.36335, 23.72914, 17.146935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.27553, 23.72914, 31.402061)
 amount = 512
 
 [node name="snow7" parent="particles" unique_id=1521202546 instance=ExtResource("4_rtp6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.657534, 23.72914, 17.146935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.859758, 23.72914, 5.971237)
 amount = 512
 
 [node name="snow8" parent="particles" unique_id=1636663123 instance=ExtResource("4_rtp6k")]
@@ -228,11 +240,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9722996, 15.875902, 47.3904
 
 [node name="car" parent="." unique_id=116658170 instance=ExtResource("8_p77db")]
 transform = Transform3D(-0.66569936, 0, -0.74622, 0, 1, 0, 0.74622, 0, -0.66569936, 8.392604, 16.029413, 44.185116)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1180816747]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4241309, 23.994482, 45.232216)
-omni_range = 17.929417
-omni_attenuation = 0.71
 
 [node name="3DCursor" parent="." unique_id=1025296672 instance=ExtResource("17_p1hoj")]
 metadata/cursor_id = 0

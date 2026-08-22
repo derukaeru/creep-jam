@@ -8,7 +8,7 @@ class_name Player extends CharacterBody3D
 @onready var camera: Camera3D = $camera_anchor/Camera3D
 
 const gravity: float = 9.8
-const DEFAULT_SPEED: float = 1.5
+const DEFAULT_SPEED: float = 2.0
 var speed: float = DEFAULT_SPEED
 var target_rotation: float = 0.0
 
@@ -23,7 +23,7 @@ var movement_tw: Tween
 var mails: Array = []
 func _ready() -> void:
 	EventBus.player_can_move.connect(
-		func(outside: bool = false) -> void: 
+		func(outside: bool = true) -> void: 
 			can_move = true
 			velocity = Vector3.ZERO
 			is_outside = outside

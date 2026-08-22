@@ -15,7 +15,6 @@ func add_details() -> void:
 	if not player: return
 	
 	marker.position = Vector2(player.global_position.x, player.global_position.y)
-	
 	# trains running
 
 func _process(delta: float) -> void:
