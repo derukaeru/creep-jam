@@ -6,7 +6,7 @@ extends Node3D
 @onready var car_anchor: Marker3D = $car_anchor
 
 var old_map_id: String
-var map_id: String = "room"
+var map_id: String = "post_office"
 
 func _ready() -> void:
 	EventBus.go_to_map.connect(go_to_map)

@@ -2,29 +2,23 @@ class_name Mailbox extends InteractableComponent
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var model_container: Node3D = $model_container
 
-@export var mail_id: String = ""
+@export var id: int = 0
+var is_active: bool = false
 
 func _on_interacted() -> void:
-	var matched_mail: Mail = find_mail()
+	if not is_active: return
 	
-	if matched_mail:
-		submit_mail(matched_mail)
-		animation.play("interact")
+	submit_mail()
+	animation.play("interact")
 	
-func find_mail() -> Mail:
-	var player: Player = Util.get_player()
-	if not player: return
-	
-	for mail: Mail in player.mails:
-		if mail.mail_id == mail_id:
-			return mail
-	
-	return null
 
-func submit_mail(mail: Mail) -> void:
-	var player: Player = Util.get_player()
-	if not player: return
+func submit_mail() -> void:
+	EventBus.delivered_mail.emit(id)
+
+func set_as_next_mail() -> void:
+	is_active = true
 	
-	player.mails.erase(mail)
-	EventBus.delivered_mail.emit(mail.mail_id, mail.mail_name)
+	var marker: Node3D = load(Registry.UID.mail_marker).instantiate()
+	add_child(marker)
 	
+	marker.position.y = 1.5

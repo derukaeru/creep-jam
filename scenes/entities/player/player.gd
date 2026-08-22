@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	if can_move:
 		if direction:
 			if is_outside:
-				speed = DEFAULT_SPEED * 2.5
+				speed = DEFAULT_SPEED * 1.4
 			else:
 				speed = DEFAULT_SPEED
 			

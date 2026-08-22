@@ -42,5 +42,6 @@ libraries/ = SubResource("AnimationLibrary_vqxgf")
 
 [node name="interact_bubble" parent="." unique_id=671375717 instance=ExtResource("2_vqxgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1497458, 0)
+visible = false
 
 [connection signal="interacted" from="." to="." method="_on_interacted"]

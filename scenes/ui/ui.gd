@@ -12,12 +12,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not GameManager.game_running or get_tree().paused: return
 	
-	if Input.is_action_just_pressed("map"):
-		if not route_map.open and not GameManager.changing_rooms:
-			open_route_map()
-		else:
-			close_route_map()
-	
 	if Input.is_action_just_pressed("ui_cancel"):
 		if route_map.open:
 			close_route_map()

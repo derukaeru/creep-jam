@@ -22,6 +22,8 @@ func change_map(id: String) -> void:
 	if Registry.MAPS.has(id):
 		if id == "main_outside":
 			EventBus.go_to_map.emit(id, true)
+		if id == "post_office":
+			EventBus.go_to_map.emit(id, false)
 
 func reset() -> void:
 	changing_rooms = false

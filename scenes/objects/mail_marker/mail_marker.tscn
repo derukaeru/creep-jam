@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bhlv87pnhpyu3"]
+
+[node name="mail_marker" type="Node3D" unique_id=1196500078]
+
+[node name="marker" type="Label3D" parent="." unique_id=1068026988]
+pixel_size = 0.003
+billboard = 2
+fixed_size = true
+texture_filter = 0
+modulate = Color(0.9307289, 0.82138354, 7.70092e-07, 1)
+text = "V"
+outline_size = 0

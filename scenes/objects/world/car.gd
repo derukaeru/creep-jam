@@ -15,8 +15,8 @@ class_name Car extends VehicleBody3D
 var brakelight_left_mat: Material
 var brakelight_right_mat: Material
 
-var max_steer: float = 0.4
-var speed: float = 620
+var max_steer: float = 0.6
+var speed: float = 500
 
 var player_in: bool = false
 var is_leaving: bool = false
@@ -112,7 +112,7 @@ func exit() -> void:
 	global_transform.basis = Basis()
 	angular_velocity = Vector3.ZERO
 	
-	player.position = to_global(Vector3(-2.4, 1.5, 0.0))
+	player.position = to_global(Vector3(-2.4, 1.7, 0.0))
 	
 	player.show()
 	player.can_move = true
@@ -131,11 +131,9 @@ func exit() -> void:
 	enter_interact_right.active = true
 	leave_car.active = false
 	
-	tween_bob()
-	
-	await get_tree().process_frame
 	player.collision.set_deferred("disabled", false)
-	EventBus.car_exited.emit(self)
+	
+	tween_bob()
 
 func tween_bob() -> void:
 	var tw: Tween = get_tree().create_tween()

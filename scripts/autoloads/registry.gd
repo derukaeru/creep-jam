@@ -11,12 +11,13 @@ var UID: Dictionary = {
 	"interact_bubble": "uid://deqnvv7npmvhr",
 	"route_map": "uid://d8y5na0yx71p",
 	
-	"main": "uid://b1mkou3w6vrst"
+	"main": "uid://b1mkou3w6vrst",
+	"mail_marker": "uid://bhlv87pnhpyu3"
 }
 
 var MAPS: Dictionary = {
 	"room": "uid://bpw37op1o56wp",
 	"main_outside": "uid://c6bwf1bgaw6mb",
-	"post_office_one": "uid://b1x76yhq81h6t",
+	"post_office": "uid://b1x76yhq81h6t",
 	"store_one": "uid://cfjcr2riv1gfk"
 }
