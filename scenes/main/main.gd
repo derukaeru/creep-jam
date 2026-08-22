@@ -3,6 +3,7 @@ extends Node3D
 @onready var world_env: WorldEnvironment = $WorldEnvironment
 @onready var map_container: Node3D = $map_container
 @onready var entities: Node3D = $entities
+@onready var car_anchor: Marker3D = $car_anchor
 
 var old_map_id: String
 var map_id: String = "room"
@@ -17,6 +18,7 @@ func _ready() -> void:
 	EventBus.change_env_fog_density.connect(change_fog_density)
 	
 	EventBus.add_entities.connect(add_entities)
+	EventBus.car_exited.connect(set_car_anchor)
 	
 	GameManager.ui.show()
 	go_to_map(map_id)
@@ -65,6 +67,8 @@ func changed_map(prev_map: String, new_map: String) -> void:
 	match new_map:
 		"main_outside":
 			change_background_color(Color("#191919"))
+			EventBus.set_car.emit(car_anchor)
+			
 
 func set_camera(camera_marker: Marker3D, pivot: Vector3 = Vector3.ZERO, wander_free: bool = false) -> void:
 	var player: Player = Util.get_player()
@@ -107,3 +111,8 @@ func add_entities(node: Node3D) -> void:
 
 func get_current_map() -> Node3D:
 	return map_container.get_child(0)
+
+func set_car_anchor(car: VehicleBody3D) -> void:
+	car_anchor.position = car.position
+	car_anchor.basis = car.basis
+	car_anchor.rotation = car.rotation

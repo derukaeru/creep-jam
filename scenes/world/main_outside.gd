@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var camera_pivot_1: Marker3D = $main_camera_pivot_1
 @onready var spawns_container: Node3D = $spawns
+@onready var car: VehicleBody3D = $car
 
 var spawns: Dictionary = {}
 

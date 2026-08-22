@@ -36,6 +36,7 @@ size = Vector3(1.8374023, 1.8173828, 2.033142)
 
 [node name="car" type="VehicleBody3D" unique_id=116658170]
 mass = 120.0
+freeze = true
 script = ExtResource("1_o1ksb")
 
 [node name="model_container" type="Node3D" parent="." unique_id=1658843732]

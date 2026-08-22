@@ -27,3 +27,5 @@ environment = SubResource("Environment_l3cfh")
 [node name="room" parent="map_container" unique_id=877440024 instance=ExtResource("3_k2fmo")]
 
 [node name="entities" type="Node3D" parent="." unique_id=1865042792]
+
+[node name="car_anchor" type="Marker3D" parent="." unique_id=1890289894]

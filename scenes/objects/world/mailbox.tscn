@@ -23,6 +23,7 @@ _data = {
 
 [node name="mailbox" type="Area3D" unique_id=1421439976]
 script = ExtResource("1_rltjr")
+interact_text = "."
 metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=489897368]

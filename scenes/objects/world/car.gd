@@ -33,6 +33,8 @@ func _ready() -> void:
 	
 	brakelight_left_mat = brakelight_mesh_left.get_active_material(0)
 	brakelight_right_mat = brakelight_mesh_right.get_active_material(0)
+	
+	EventBus.car_exited.emit(self)
 
 func _physics_process(delta: float) -> void:
 	if is_leaving:
@@ -99,7 +101,7 @@ func interacted() -> void:
 	
 	tween_bob()
 	
-	await get_tree().process_frame
+	await get_tree().create_timer(1.0).timeout
 	leave_car.active = true
 	
 func exit() -> void:
@@ -107,14 +109,15 @@ func exit() -> void:
 	if not player: return
 	if not player_in: return
 	
-	# fix this bum ass fucking stupid car physics shit
-	player.position = to_global(Vector3(2.0, 1.5, 0.0))
+	global_transform.basis = Basis()
+	angular_velocity = Vector3.ZERO
+	
+	player.position = to_global(Vector3(-2.4, 1.5, 0.0))
 	
 	player.show()
 	player.can_move = true
 	player.is_in_car = false
 	
-	player.collision.set_deferred("disabled", false)
 	player.camera.fov = 80.0
 	
 	player_in = false
@@ -129,6 +132,10 @@ func exit() -> void:
 	leave_car.active = false
 	
 	tween_bob()
+	
+	await get_tree().process_frame
+	player.collision.set_deferred("disabled", false)
+	EventBus.car_exited.emit(self)
 
 func tween_bob() -> void:
 	var tw: Tween = get_tree().create_tween()
