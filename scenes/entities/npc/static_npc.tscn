@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cktkv7mgicv83" path="res://scenes/entities/npc/static_npc.gd" id="1_imdml"]
 [ext_resource type="Script" uid="uid://dj1tk7mo3fyg3" path="res://scripts/components/interactable.gd" id="1_nx0m7"]
+[ext_resource type="Texture2D" uid="uid://bbb5m4xmsevx4" path="res://assets/models/entities/player/npc.png" id="2_oy0jl"]
+[ext_resource type="ArrayMesh" uid="uid://dciy1fbq1fd21" path="res://assets/models/entities/player/player.obj" id="3_jfgre"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_imdml"]
 height = 0.9482422
 radius = 0.25048828
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_r1pn6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsddb"]
+albedo_texture = ExtResource("2_oy0jl")
 
 [sub_resource type="Animation" id="Animation_imdml"]
 resource_name = "interact"
@@ -30,15 +33,17 @@ shape = SubResource("CylinderShape3D_imdml")
 
 [node name="model_container" type="Node3D" parent="." unique_id=2112299809]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="model_container" unique_id=871222857]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.47461998, 0)
-mesh = SubResource("CapsuleMesh_r1pn6")
+[node name="model" type="MeshInstance3D" parent="model_container" unique_id=1329457708]
+transform = Transform3D(0.275, 0, 0, 0, 0.275, 0, 0, 0, 0.275, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xsddb")
+mesh = ExtResource("3_jfgre")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=892406241]
 libraries/ = SubResource("AnimationLibrary_r1pn6")
 
 [node name="talk_area" type="Area3D" parent="." unique_id=406130030]
 script = ExtResource("1_nx0m7")
+interact_text = "talk"
 metadata/_custom_type_script = "uid://dj1tk7mo3fyg3"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="talk_area" unique_id=1388422148]

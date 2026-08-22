@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ddvv4livyubl5" path="res://scenes/world/post_office.gd" id="1_vtv0a"]
 [ext_resource type="Script" uid="uid://cw8027kkdy1c7" path="res://scripts/components/room_transition.gd" id="2_bh5ah"]
 [ext_resource type="ArrayMesh" uid="uid://cfvbaq340vtia" path="res://assets/models/room/post_office.obj" id="3_o063y"]
+[ext_resource type="PackedScene" uid="uid://bjt15iuday65v" path="res://scenes/entities/npc/static_npc.tscn" id="4_ajb67"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8q0tj"]
 size = Vector3(8, 0.02, 8)
@@ -64,3 +65,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6027074)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0461051, 0)
 omni_range = 6.9504123
 omni_attenuation = 0.535
+
+[node name="static_npc" parent="." unique_id=542692205 instance=ExtResource("4_ajb67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6970977)
+NAME = "postman"
+dialogue_paragraph = "greet"

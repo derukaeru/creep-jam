@@ -53,10 +53,9 @@ func next_line() -> void:
 	if Dialogues.dialogue[dialogue_name][dialogue_paragraph].size() <= dialogue_line: 
 		done.emit()
 		queue_free()
-		
 		return
 	
-	text = Dialogues.dialogues[dialogue_name][dialogue_paragraph][dialogue_line]
+	text = Dialogues.dialogue[dialogue_name][dialogue_paragraph][dialogue_line]
 	
 	label.text = ""
 	animation.play("RESET")
