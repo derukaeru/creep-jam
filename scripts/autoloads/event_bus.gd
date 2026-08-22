@@ -20,3 +20,4 @@ signal delivered_mail(mail_id: String, mail_name: String)
 signal car_entered
 signal car_exited(car: VehicleBody3D)
 signal set_car(anchor: Marker3D)
+signal set_mailbox(id: int)

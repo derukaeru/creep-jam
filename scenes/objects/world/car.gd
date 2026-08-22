@@ -112,7 +112,7 @@ func exit() -> void:
 	global_transform.basis = Basis()
 	angular_velocity = Vector3.ZERO
 	
-	player.position = to_global(Vector3(-2.4, 1.7, 0.0))
+	player.position = to_global(Vector3(-2.6, 1.7, 0.0))
 	
 	player.show()
 	player.can_move = true
@@ -132,7 +132,6 @@ func exit() -> void:
 	leave_car.active = false
 	
 	player.collision.set_deferred("disabled", false)
-	
 	tween_bob()
 
 func tween_bob() -> void:

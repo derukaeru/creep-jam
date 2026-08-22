@@ -30,4 +30,7 @@ func reset() -> void:
 	game_running = false
 	
 	ui.pause_screen.hide()
-	ui.route_map.hide()
+
+func give_mail_task() -> void:
+	var id: int = randi_range(0, 11)
+	EventBus.set_mailbox.emit(id)

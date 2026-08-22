@@ -5,6 +5,11 @@ class_name Mailbox extends InteractableComponent
 @export var id: int = 0
 var is_active: bool = false
 
+func _ready() -> void:
+	super._ready()
+	
+	EventBus.set_mailbox.connect(set_as_next_mail)
+
 func _on_interacted() -> void:
 	if not is_active: return
 	
@@ -15,9 +20,10 @@ func _on_interacted() -> void:
 func submit_mail() -> void:
 	EventBus.delivered_mail.emit(id)
 
-func set_as_next_mail() -> void:
-	is_active = true
+func set_as_next_mail(_id: int) -> void:
+	if _id != id: return
 	
+	is_active = true
 	var marker: Node3D = load(Registry.UID.mail_marker).instantiate()
 	add_child(marker)
 	

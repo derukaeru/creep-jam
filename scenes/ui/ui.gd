@@ -3,7 +3,6 @@ class_name UI extends CanvasLayer
 @onready var pause_screen: PauseScreen = $pause_screen
 @onready var room_transition: ColorRect = $room_transition
 @onready var room_transition_anim: AnimationPlayer = $room_transition/AnimationPlayer
-@onready var route_map: RouteMap = $route_map
 @onready var shader: ColorRect = $shader
 
 func _ready() -> void:
@@ -13,33 +12,12 @@ func _process(_delta: float) -> void:
 	if not GameManager.game_running or get_tree().paused: return
 	
 	if Input.is_action_just_pressed("ui_cancel"):
-		if route_map.open:
-			close_route_map()
-		else:
-			if get_tree().paused:
-				if pause_screen.settings_screen.visible:
-					pause_screen.settings_screen.exit_pressed()
-				else:
-					get_tree().paused = false
-					pause_screen.close()
+		if get_tree().paused:
+			if pause_screen.settings_screen.visible:
+				pause_screen.settings_screen.exit_pressed()
 			else:
-				get_tree().paused = true
-				pause_screen.open()
-
-func open_route_map() -> void:
-	route_map.animation.play("open")
-	route_map.show()
-	
-	await route_map.animation.animation_finished
-	
-	route_map.open = true
-	EventBus.player_not_move.emit()
-
-func close_route_map() -> void:
-	route_map.animation.play_backwards("open")
-	await route_map.animation.animation_finished
-	
-	route_map.open = false
-	route_map.hide()
-	
-	EventBus.player_can_move.emit()
+				get_tree().paused = false
+				pause_screen.close()
+		else:
+			get_tree().paused = true
+			pause_screen.open()
